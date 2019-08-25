@@ -1,3 +1,24 @@
 {
-  "title":"Waveshare Raspberry Pi High-Precision AD/DA Expansion Board"
+  "title":"Waveshare Raspberry Pi High-Precision AD/DA Expansion Board",
+  "devices":
+  {
+    "pr_2_4":{
+      "sensors":{
+        "soil_moisture_1":{
+          "mask":{
+            "channel":{
+              "ad0": "AD\\s+\\d+\\.\\d+"
+            }
+          },
+          "rule":"$value*10"
+        },
+        "soil_moisture_2":{
+          "mask": "AD\\s+\\d+\\.\\d+"
+        }
+      }
+    },
+    "pr_2_6":{
+
+    }
+  }
 }
