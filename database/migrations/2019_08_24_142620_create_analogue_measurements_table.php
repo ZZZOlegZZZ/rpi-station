@@ -16,6 +16,7 @@ class CreateAnalogueMeasurementsTable extends Migration
         Schema::create('analogue_measurements', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamp('created_at')->useCurrent();
+            $table->boolean('is_processed')->default(false);
             $table->float('ad_0');
             $table->float('ad_1');
             $table->float('ad_2');
