@@ -1,19 +1,26 @@
 {
   "title":"Waveshare Raspberry Pi High-Precision AD/DA Expansion Board",
+  "min_length": "5",
   "devices":
   {
     "pr_2_4":{
       "sensors":{
         "soil_moisture_1":{
           "mask":{
-            "channel":{
-              "ad0": "AD\\s+\\d+\\.\\d+"
-            }
+            "ad0": "AD\\s+(-*\\d+\\.*\\d*)",
+            "ad1": "AD\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+            "ad2": "AD\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+            "ad3": "AD\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+            "ad4": "AD\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+            "ad5": "AD\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+            "ad6": "AD\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+            "ad7": "AD\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)"
           },
-          "rule":"$value*10"
+          "rule":"$tmp = 1490.6*pow($s_value, 6) - 4323.4*pow($s_value, 5)+4940.5*pow($s_value, 4)-2743.2*pow($s_value, 3)+761.97*pow($s_value, 2)-52.011*$s_value-3.5983; ($tmp<0)?$value=null:$value=$tmp;"
         },
         "soil_moisture_2":{
-          "mask": "AD\\s+\\d+\\.\\d+"
+          "mask": "AD\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$tmp = 1490.6*pow($s_value, 6) - 4323.4*pow($s_value, 5)+4940.5*pow($s_value, 4)-2743.2*pow($s_value, 3)+761.97*pow($s_value, 2)-52.011*$s_value-3.5983; ($tmp<0)?$value=null:$value=$tmp;"
         }
       }
     },

@@ -17,8 +17,9 @@ class CreateExpansionModulesTable extends Migration
             $table->bigIncrements('id');
             $table->string('alias');
             $table->boolean('is_active')->default(true);
+            $table->boolean('is_optional')->default(true);
             $table->json('config')->nullable();
-            $table->timestamps();
+            $table->json('properties')->nullable();
         });
     }
 

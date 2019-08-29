@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSensorsTable extends Migration
+class CreateDevicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,17 @@ class CreateSensorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sensors', function (Blueprint $table) {
+        Schema::create('devices', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('expansion_module_id');
             $table->string('alias');
             $table->boolean('is_active')->default(true);
             $table->json('config')->nullable();
-            $table->timestamps();
+            $table->json('properties')->nullable();
+            
+
+            $table->foreign('expansion_module_id')
+              ->references('id')->on('expansion_modules');
         });
     }
 
@@ -29,6 +34,6 @@ class CreateSensorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sensors');
+        Schema::dropIfExists('devices');
     }
 }

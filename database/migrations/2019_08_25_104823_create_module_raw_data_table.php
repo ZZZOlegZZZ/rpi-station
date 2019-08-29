@@ -15,10 +15,14 @@ class CreateModuleRawDataTable extends Migration
     {
         Schema::create('module_raw_data', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('module');
+            $table->unsignedBigInteger('measurement_id');
+            $table->unsignedBigInteger('expansion_module_id');
             $table->text('data');
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('processed_at')->nullable();
+
+            $table->foreign('measurement_id')
+              ->references('id')->on('measurements');
+            $table->foreign('expansion_module_id')
+              ->references('id')->on('expansion_modules');
         });
     }
 
