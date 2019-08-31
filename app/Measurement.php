@@ -79,17 +79,17 @@ class Measurement extends Model
 
     public static function processRaw(){
       $unprocessed = self::getUnprocessed();
-      print_r($unprocessed);
+
 
       foreach($unprocessed as $measurement){
         $data=[];
 
         foreach ($measurement->rawData as $rawData){
           $module = $rawData->module;
-          print_r($module);
+
 
           foreach ($module->devices as $device){
-            print_r($device);
+
 
             foreach (Expansion::sensors($module, $device) as $param => $sensor){
               preg_match(
@@ -97,6 +97,9 @@ class Measurement extends Model
                 $rawData,
                 $matches
               );
+
+              echo Expansion::mask($device, $param);
+              print_r($matches);
 
               if (count($matches) > 1){
                 $s_value = $matches[1];
