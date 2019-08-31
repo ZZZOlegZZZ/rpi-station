@@ -1,1 +1,2 @@
-print('It is test execution');
+import sys
+print(len(sys.argv))

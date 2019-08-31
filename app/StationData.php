@@ -18,4 +18,5 @@ class StationData extends Model
         'data'=>json_encode(["t_air"=>10.2]),
       ]);
     }
+
 }

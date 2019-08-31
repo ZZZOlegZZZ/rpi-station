@@ -1,14 +1,21 @@
-import sqlite3
 import sys
+import telnetlib
+
+host = '192.168.1.1'
+port = 4001
+
+if len(sys.argv)>1:
+    host = sys.argv[1]
+    port = sys.argv[2]
+
+try:
+    tn = telnetlib.Telnet(host, port)
 
 
-data = "AIR     193     588     110     755     100629"
-# measurement_id = sys.argv[1]
-# module_id = sys.argv[2]
-#
-# conn = sqlite3.connect('/var/sqlite/rpi-station.sqlite')
-# conn.execute("INSERT INTO module_raw_data (expansion_module_id, measurement_id, data) VALUES({}, {}, '{}')".format(module_id, measurement_id, data))
-# conn.commit()
-# conn.close()
+    tn.write(chr(27).encode('ascii'))
+    tn.write("hist\n".encode('ascii'))
 
-print(data)
+    print(tn.read_until(b"[/HIST]").decode('ascii'))
+
+except:
+    print()

@@ -25,42 +25,4 @@ class StationDataController extends Controller
       return $station_data;
     }
 
-
-    public static function processRawData(){
-      $unprocessed = Measurement::getUnprocessed();
-
-      foreach($unprocessed as $measurement){
-        $data=[];
-
-        foreach ($measurement->rawData as $rawData){
-          $module = $rawData->module;
-
-          foreach ($module->devices as $device){
-
-            foreach (Expansion::sensors($module, $device) as $param => $sensor){
-              preg_match(
-                "/".Expansion::mask($device, $param, $sensor)."/",
-                $rawData,
-                $matches
-              );
-
-              if (count($matches) > 1){
-                $s_value = $matches[1];
-
-                eval("$sensor->rule");
-
-                $data[$param] = $value;
-              }
-            }
-          }
-        }
-        if ($data){
-          StationData::create([
-            'measured_at' => $measurement->measured_at,
-            'data' => $data,
-          ]);
-        }
-        //$measurement->setProcessed();
-      }
-    }
 }

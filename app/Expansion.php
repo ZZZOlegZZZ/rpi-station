@@ -33,12 +33,25 @@ class Expansion
       return self::devices($module)->{$device->alias}->sensors;
     }
 
-    public static function mask(Device $device, $param, $sensor){
+    public static function mask(Device $device, String $sensor){
       try {
-        if (gettype($sensor->mask)=='string'){
-          return $sensor->mask;
+        if (gettype($device->sensors()->$sensor->mask)=='string'){
+          return $device->sensors()->$sensor->mask;
         } else {
-          return $sensor->mask->{$device->config[$param]};
+          return $device->sensors()->$sensor->mask->{$device->config['mask'][$sensor]};
+        }
+      }
+      catch (\Exception $e){
+        return null;
+      }
+    }
+
+    public static function rule(Device $device, String $sensor){
+      try {
+        if (gettype($device->sensors()->$sensor->rule)=='string'){
+          return $device->sensors()->$sensor->rule;
+        } else {
+          return $device->sensors()->$sensor->rule->{$device->config['rule'][$sensor]};
         }
       }
       catch (\Exception $e){
