@@ -21,7 +21,7 @@ try:
     for value in data:
         data_string += ' ' + str(value)
 
-    print (data)
+    print (data_string)
 
 except :
    GPIO.cleanup()
