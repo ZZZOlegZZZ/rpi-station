@@ -3,8 +3,6 @@ import ADS1256
 import RPi.GPIO as GPIO
 import numpy as np
 
-conn = sqlite3.connect('/var/sqlite/rpi-station.sqlite')
-
 try:
     ADC = ADS1256.ADS1256()
     ADC.ADS1256_init()
