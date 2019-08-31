@@ -99,7 +99,7 @@ class Measurement extends Model
               );
 
               echo Expansion::mask($device, $param);
-              print_r($rawData);
+              print_r($rawData->data);
 
               if (count($matches) > 1){
                 $s_value = $matches[1];
