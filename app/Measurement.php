@@ -122,7 +122,7 @@ class Measurement extends Model
             'data' => $data,
           ]);
         }
-        //$measurement->setProcessed();
+        $measurement->setProcessed();
       }
     }
 
