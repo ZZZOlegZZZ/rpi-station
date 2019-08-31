@@ -8,6 +8,9 @@ class ExpansionModule extends Model
 {
     public $timestamps = false;
 
+    protected $guarded = [];
+    
+
     protected $casts = [
       'config' => 'array',
       'properties' => 'array',

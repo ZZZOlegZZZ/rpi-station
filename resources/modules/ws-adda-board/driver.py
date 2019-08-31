@@ -1,4 +1,30 @@
-import sys
-data = "AD 0.34502098691713653 0.45671718570198842 0.56764086206446433 0.67888276790175055 0.7992506980002758 0.8317340411822846 0.7997515558900303 0.0"
+import time
+import ADS1256
+import RPi.GPIO as GPIO
+import numpy as np
 
-print(data)
+conn = sqlite3.connect('/var/sqlite/rpi-station.sqlite')
+
+try:
+    ADC = ADS1256.ADS1256()
+    ADC.ADS1256_init()
+
+    data = np.array([0,0,0,0,0,0,0,0])
+
+    i = 0
+    while i<10:
+        measurement = np.array(ADC.ADS1256_GetAll())
+        data=np.sum([data, measurement], axis = 0)
+        i+=1
+
+    data = (data*5.0/0x7fffff)/10
+    data_string = 'AD'
+
+    for value in data:
+        data_string += ' ' + str(value)
+
+    print (data)
+
+except :
+   GPIO.cleanup()
+   exit()
