@@ -1,4 +1,5 @@
 import sys
+import time
 import telnetlib
 
 host = '192.168.1.1'
@@ -13,6 +14,7 @@ try:
 
 
     tn.write(chr(27).encode('ascii'))
+    time.sleep(1)
     tn.write("hist\n".encode('ascii'))
 
     print(tn.read_until(b"[/HIST]").decode('ascii'))
