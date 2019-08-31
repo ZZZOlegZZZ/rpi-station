@@ -94,12 +94,12 @@ class Measurement extends Model
             foreach (Expansion::sensors($module, $device) as $param => $sensor){
               preg_match(
                 "/".Expansion::mask($device, $param)."/",
-                $rawData,
+                $rawData->data,
                 $matches
               );
 
-              echo Expansion::mask($device, $param);
-              print_r($rawData->data);
+              // echo Expansion::mask($device, $param);
+              // print_r($rawData->data);
 
               if (count($matches) > 1){
                 $s_value = $matches[1];
