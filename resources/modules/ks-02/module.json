@@ -104,7 +104,7 @@
           "short_title":"Тип осадков",
           "unit":"сек",
           "mask":"OPTEYECNT\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value; $precip_cnt=$s_value"
+          "rule":"($s_value == -9999)?$value = null:$value = $s_value; $precip_cnt=$s_value;"
         },
         "precipitation_amount": {
           "title":"Количествово осадков",
