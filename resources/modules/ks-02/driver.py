@@ -20,4 +20,4 @@ try:
     print(tn.read_until(b"[/HIST]").decode('ascii'))
 
 except:
-    print()
+    exit()
