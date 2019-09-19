@@ -27,8 +27,8 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         $schedule->call(function(){
-          App\Measurement::pollModules();
-          App\Measurement::processRaw();
+          \App\Measurement::pollModules();
+          \App\Measurement::processRaw();
         })->everyFiveMinutes();
     }
 
