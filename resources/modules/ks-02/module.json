@@ -58,7 +58,7 @@
           "title":"Скорость ветра",
           "short_title":"Ск. ветра",
           "unit":"м/с",
-          "mask":"WIND\\s+(-*\\d+)",
+          "mask":"WIND\\s+\\S+\\s+(-*\\d+)",
           "rule":"($s_value == -9999)?$value = null:$value = $s_value/10;"
         },
         "wind_gusts": {
