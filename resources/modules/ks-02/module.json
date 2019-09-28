@@ -2,7 +2,7 @@
   "module": "ks-02",
   "title": "Minimax KS-02",
   "manufacture": "Minimax",
-  "min_length": "50",
+  "min_length": "150",
   "devices":
   {
     "dtv":
