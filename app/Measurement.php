@@ -143,6 +143,6 @@ class Measurement extends Model
     }
 
     public static function getUnprocessed(){
-      return self::where('is_valid', 1)->whereNull('processed_at')->get();
+      return self::where('is_valid', true)->whereNull('processed_at')->get();
     }
 }
