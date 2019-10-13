@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/door/{status}', 'DoorController@doorStatus');
+Route::get('/lastdata/{ndays}', 'StationDataController@lastData');
+Route::get('/history', 'StationDataController@history');
+
+Route::get('/alerts', 'AlertController@index');

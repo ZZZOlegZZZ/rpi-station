@@ -1,0 +1,65 @@
+{
+  "groups": {
+    "rzd": {
+      "low_t_air": {
+        "title": "Низкая температура воздуха",
+        "condition": "$station_data->last()->t_air <= -30;"
+      },
+
+      "high_t_air": {
+        "title": "Высокая температура воздуха",
+        "condition": "$station_data->last()->t_air >= 25;"
+      },
+
+      "exream_t_air_change": {
+        "title": "Резкий перепад температур",
+        "condition": "$station_data->tAirDiff(24) > 15;"
+      },
+
+      "avg_t_air_zero_cross": {
+        "title": "Переход среднесуточной температуры воздуха к отрицательным значениям",
+        "condition": "$station_data->dailyAvgTairZeroCross();"
+      },
+
+      "strong_wind": {
+        "title": "Сильный ветер",
+        "condition": "$station_data->last()->wind_speed > 15;"
+      },
+
+      "long_lasting_moderate_rain": {
+        "title": "Продолжительный умеренный дождь",
+        "condition": "$station_data->precipSum(12)['rain'] >= 10 && $station_data->precipSum(12)['rain'] <= 19;"
+      },
+
+      "strong_rain": {
+        "title": "Сильный дождь",
+        "condition": "$station_data->precipSum(12)['rain'] > 19 && $station_data->precipSum(12)['rain'] <= 49;"
+      },
+
+      "extream_rain": {
+        "title": "Ливневой дождь",
+        "condition": "$station_data->precipSum(3)['rain'] >= 20 && $station_data->precipSum(3)['rain'] <= 49;"
+      },
+
+      "very_strong_rain": {
+        "title": "Очень сильный дождь",
+        "condition": "$station_data->precipSum(12)['rain'] > 49;"
+      },
+
+      "moderate_snow": {
+        "title": "Умеренный снег",
+        "condition": "$station_data->last()->precipitation_type == 2 && $station_data->last()->precipitation_intensity * 24 > 10;"
+      },
+
+      "considerable_snow": {
+        "title": "Значительный снег",
+        "condition": "$station_data->last()->t_air > 0;"
+      },
+
+      "strong_snow": {
+        "title": "Сильный снег",
+        "condition": "$station_data->last()->t_air > 0;"
+      }
+    }
+  }
+}

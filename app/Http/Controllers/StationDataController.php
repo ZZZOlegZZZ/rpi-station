@@ -25,4 +25,22 @@ class StationDataController extends Controller
       return $station_data;
     }
 
+    public function lastData($ndays){
+      return StationData::whereRaw(
+          'measured_at > datetime("now","-'.$ndays.' day")'
+        )->get();
+    }
+
+    public function history(Request $request){
+      $request->validate([
+        'startDate' => 'required|date',
+        'endDate' => 'required|date',
+      ]);
+
+      return StationData::whereRaw(
+          'measured_at>=\''.$request->startDate.
+          '\' AND measured_at<=\''.$request->endDate.'\''
+        )->get();
+    }
+
 }

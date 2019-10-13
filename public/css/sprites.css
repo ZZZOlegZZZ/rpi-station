@@ -1,0 +1,70 @@
+.w_icon{
+  width: 64px;
+  height: 64px;
+  background: url("../images/weather_icons.png") no-repeat;
+  float:left;
+}
+
+.w_icon.no_precip{
+  background-position: 0 0;
+}
+
+.w_icon.precip_rain {
+  background-position: -64px 0;
+}
+
+.w_icon.precip_snow {
+  background-position: -128px 0;
+}
+
+.w_icon.precip_snow_rain {
+  background-position: -192px 0;
+}
+
+.w_icon.precip_hail {
+  background-position: -256px 0;
+}
+
+.w_icon.precip_freezing_rain {
+  background-position: -448px 0;
+}
+
+.w_icon.precip_undef {
+  background-position: -512px 0;
+}
+
+.w_icon.wind_n {
+  background-position: 0 -64px;
+}
+
+.w_icon.wind_ne {
+  background-position: -64px -64px;
+}
+
+.w_icon.wind_e {
+  background-position: -128px -64px;
+}
+
+.w_icon.wind_se {
+  background-position: -192px -64px;
+}
+
+.w_icon.wind_s {
+  background-position: -256px -64px;
+}
+
+.w_icon.wind_sw {
+  background-position: -320px -64px;
+}
+
+.w_icon.wind_w {
+  background-position: -384px -64px;
+}
+
+.w_icon.wind_nw {
+  background-position: -448px -64px;
+}
+
+.w_icon.wind_none {
+  background-position: -512px -64px;
+}
