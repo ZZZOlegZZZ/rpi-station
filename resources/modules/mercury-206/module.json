@@ -1,0 +1,23 @@
+{
+  "module": "mercury-206",
+  "title": "Меркурий 206",
+  "manufacture": "Меркурий",
+  "min_length": "5",
+  "engine": "python",
+  "devices":
+  {
+    "counter":
+    {
+      "title": "Счетчик электрической энергии",
+      "sensors": {
+        "voltage": {
+          "title":"Напряжение сети",
+          "short_title":"U сети",
+          "unit":"В",
+          "mask":"AIR\\s+(-*\\d+)",
+          "rule":"$value = $s_value;"
+        }
+      }
+    }
+  }
+}
