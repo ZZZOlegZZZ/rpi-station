@@ -10,11 +10,25 @@
     {
       "title": "Счетчик электрической энергии",
       "sensors": {
-        "voltage": {
+        "input_voltage": {
           "title":"Напряжение сети",
           "short_title":"U сети",
           "unit":"В",
-          "mask":"AIR\\s+(-*\\d+)",
+          "mask":"POWER\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        },
+        "input_current": {
+          "title":"Ток сети",
+          "short_title":"I сети",
+          "unit":"А",
+          "mask":"POWER\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        },
+        "input_power": {
+          "title":"Потребляемая мощность",
+          "short_title":"P",
+          "unit":"Вт",
+          "mask":"POWER\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = $s_value;"
         }
       }
