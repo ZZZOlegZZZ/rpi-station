@@ -11,7 +11,7 @@ try:
 
     data_string = 'POWER'
 
-    for value in data
+    for value in data:
         data_string += ' ' + str(value)
 
     print data_string;
