@@ -2,6 +2,8 @@
   "modules":
   [
     "ks-02",
-    "ws-adda-board"
+    "ws-adda-board",
+    "pow-mon",
+    "mercury-206"
   ]
 }

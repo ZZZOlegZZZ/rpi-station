@@ -1,6 +1,7 @@
 {
   "title":"Waveshare Raspberry Pi High-Precision AD/DA Expansion Board",
   "min_length": "5",
+  "engine": "python3",
   "devices":
   {
     "os_100_n": {

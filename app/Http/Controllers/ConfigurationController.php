@@ -82,4 +82,8 @@ class ConfigurationController extends Controller
     {
         //
     }
+
+    public function ui(){
+      return Configuration::find(1)->settings->ui;
+    }
 }

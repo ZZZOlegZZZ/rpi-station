@@ -31,7 +31,11 @@ class ftpClient extends Model
         foreach(StationData::unsent($client) as $data){
             if ($filesystem->put(
                 $station_id."_".date("YmdHis", strtotime($data->measured_at)).".json",
-                json_encode($data->data)
+                json_encode([
+                  "measured_at" => date("Y-m-d H:i:s", strtotime($data->measured_at)),
+                  "st_index" => $station_id,
+                  "data" => $data->data,
+                ])
               ))
             {
               $client->update([

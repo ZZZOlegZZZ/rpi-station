@@ -1,6 +1,8 @@
 <template lang="html">
-  <rzd-template v-if="template=='rzd' && dataReady" :data="data" :alerts="alerts">
-  </rzd-template>
+  <div>
+    <rzd-template v-if="ui=='rzd' && dataReady" :data="data" :alerts="alerts">
+    </rzd-template>
+  </div>
 </template>
 
 <script>
@@ -18,23 +20,75 @@ export default {
 
   data() {
     return {
+      ui: null,
       data: null,
       alerts: null,
       dataReady: false,
+      updating: null,
     };
   },
 
   mounted() {
-    this.loadAll()
+    this.getUI()
     .then(() => {
-      this.dataReady = true;
+      this.loadAll()
+      .then(() => {
+        this.dataReady = true;
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+
+      this.updating = setInterval(() => {
+            this.getLastData();
+
+        }, 5000);
     })
     .catch((e) => {
-      console.log(e)
+      console.log(e);
     })
+
+  },
+
+  watch: {
+    data: function(newData, oldData) {
+      if (oldData && newData[newData.length - 1].measured_at != oldData[oldData.length - 1].measured_at) {
+
+
+        axios.get('/api/alerts')
+        .then((response) => {
+          let alerts = response.data;
+          for (let alert in alerts){
+            if (!(alert in this.alerts)){
+              let alertSound = new Audio('audio/sound.wav');
+              alertSound.play();
+              this.alerts = alerts;
+              return true;
+            }
+          }
+          this.alerts = alerts;
+
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      }
+    },
   },
 
   methods: {
+    async getUI() {
+      let response;
+
+      try {
+        response = await axios.get('/api/ui')
+      } catch(e) {
+        return (e)
+      }
+
+      this.ui = response.data;
+    },
+
     async getLastData() {
       let response;
 

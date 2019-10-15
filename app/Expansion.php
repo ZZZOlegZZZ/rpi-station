@@ -58,4 +58,8 @@ class Expansion
         return null;
       }
     }
+
+    public static function engine(ExpansionModule $module){
+      return self::module($module)->engine;
+    }
 }

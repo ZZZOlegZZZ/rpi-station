@@ -106,7 +106,7 @@ export default {
 
   props: {
     data: Array,
-    alerts: Object,
+    alerts: null,
   },
 
   data() {
@@ -123,7 +123,7 @@ export default {
       return (this.data)?this.data[this.data.length - 1]:null;
     },
     lastMeasured: function() {
-      return (this.lastData)?moment(this.lastData.measured_at).format('DD MMMM hh:mm'):null;
+      return (this.lastData)?moment(this.lastData.measured_at).format('DD MMMM HH:mm'):null;
     }
   },
 }

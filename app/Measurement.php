@@ -68,8 +68,10 @@ class Measurement extends Model
         }
       }
 
+      $engine = Expansion::engine($module);
+
       $command = escapeshellcmd(
-        'python3 resources/modules/'.
+        $engine.' resources/modules/'.
         $module->alias.
         '/'.$driver.$arguments
       );

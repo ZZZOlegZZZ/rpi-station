@@ -28,37 +28,37 @@
 
       "long_lasting_moderate_rain": {
         "title": "Продолжительный умеренный дождь",
-        "condition": "$station_data->precipSum(12)['rain'] >= 10 && $station_data->precipSum(12)['rain'] <= 19;"
+        "condition": "$station_data->last()->precipitation_type == 1 && $station_data->precipSum(12)['rain'] >= 10 && $station_data->precipSum(12)['rain'] < 20;"
       },
 
       "strong_rain": {
         "title": "Сильный дождь",
-        "condition": "$station_data->precipSum(12)['rain'] > 19 && $station_data->precipSum(12)['rain'] <= 49;"
+        "condition": "$station_data->last()->precipitation_type == 1 && $station_data->precipSum(12)['rain'] >= 20 && $station_data->precipSum(12)['rain'] < 50;"
       },
 
       "extream_rain": {
         "title": "Ливневой дождь",
-        "condition": "$station_data->precipSum(3)['rain'] >= 20 && $station_data->precipSum(3)['rain'] <= 49;"
+        "condition": "$station_data->last()->precipitation_type == 1 && $station_data->precipSum(3)['rain'] >= 20 && $station_data->precipSum(3)['rain'] < 50;"
       },
 
       "very_strong_rain": {
         "title": "Очень сильный дождь",
-        "condition": "$station_data->precipSum(12)['rain'] > 49;"
+        "condition": "$station_data->last()->precipitation_type == 1 && $station_data->precipSum(12)['rain'] > 49;"
       },
 
       "moderate_snow": {
         "title": "Умеренный снег",
-        "condition": "$station_data->last()->precipitation_type == 2 && $station_data->last()->precipitation_intensity * 24 > 10;"
+        "condition": "($station_data->last()->precipitation_type == 2 || $station_data->last()->precipitation_type == 3) && $station_data->last()->precipitation_intensity * 24 >= 50 && $station_data->last()->precipitation_intensity * 24 < 100;"
       },
 
       "considerable_snow": {
         "title": "Значительный снег",
-        "condition": "$station_data->last()->t_air > 0;"
+        "condition": "($station_data->last()->precipitation_type == 2 || $station_data->last()->precipitation_type == 3) && $station_data->last()->precipitation_intensity * 24 >= 100 && $station_data->last()->precipitation_intensity * 24 < 200;"
       },
 
       "strong_snow": {
         "title": "Сильный снег",
-        "condition": "$station_data->last()->t_air > 0;"
+        "condition": "($station_data->last()->precipitation_type == 2 || $station_data->last()->precipitation_type == 3) && $station_data->last()->precipitation_intensity * 24 >= 200;"
       }
     }
   }

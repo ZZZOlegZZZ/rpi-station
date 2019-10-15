@@ -14,7 +14,7 @@ export default {
   name: "alert",
 
   props: {
-    alerts: Object,
+    alerts: null,
   },
 
   mounted() {
