@@ -15,7 +15,7 @@ try:
 
     tn.write(chr(27).encode('ascii'))
     time.sleep(1)
-    tn.write("hist\n".encode('ascii'))
+    tn.write("poll\n".encode('ascii'))
 
     data = tn.read_until(b"[/HIST]").decode('ascii')
 
