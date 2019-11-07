@@ -40,7 +40,7 @@ class Power extends Model
           $status = 2; //Сеть
         }
 
-        Power::firstOrUpdate(['id' => 1], ['status' => $status]);
+        Power::updateOrCreate(['id' => 1], ['status' => $status]);
       }
     }
 }
