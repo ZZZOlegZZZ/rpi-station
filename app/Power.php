@@ -41,6 +41,7 @@ class Power extends Model
         }
 
         Power::updateOrCreate(['id' => 1], ['status' => $status]);
+        return $status;
       }
     }
 }
