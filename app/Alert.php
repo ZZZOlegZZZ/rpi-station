@@ -25,7 +25,8 @@ class Alert extends Model
     }
 
     public static function powerStatus(){
-      $data = Power::firstOrFail(1);
+      $data = Power::findOrFail(1);
+
       if ($data->status == 0){
         return ['power_status'=>null];
       }
