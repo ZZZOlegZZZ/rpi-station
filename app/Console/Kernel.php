@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){
           \App\Measurement::pollModules();
           \App\Measurement::processRaw();
-        })->everyMinute();
+        })->everyFiveMinutes();
     }
 
     /**
