@@ -28,12 +28,22 @@ class Alert extends Model
       $module = ExpansionModule::where('alias','mercury-206')->first();
       $measurement = new Measurement;
       $rawData = $measurement->pollModule($module);
+      $sensors = [
+        "input_voltage" => [
+          "mask" => "POWER\\s+(-*\\d+\\.*\\d*)",
+          "rule" => "$value = $s_value;"
+        ],
+        "input_current" => [
+          "mask" => "POWER\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule" => "$value = $s_value;"
+        ]
+      ];
       $data=[];
 
       foreach($module->devices as $device){
-        foreach (Expansion::sensors($module, $device) as $param => $sensor){
+        foreach ($sensors as $param => $sensor){
           preg_match(
-            "/".Expansion::mask($device, $param)."/",
+            "/".$sensor['mask']."/",
             $rawData,
             $matches
           );
@@ -43,11 +53,7 @@ class Alert extends Model
             $s_value = $matches[1];
 
 
-            eval(Expansion::rule($device, $param));
-
-            echo Expansion::rule($device, $param);
-
-            // echo "$param => $value\r\n";
+            eval($sensor['rule']);
 
             $data[$param] = $value;
           }
