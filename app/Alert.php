@@ -25,18 +25,47 @@ class Alert extends Model
     }
 
     public static function powerStatus(){
-      $data = StationData::orderBy('id', 'desc')->first()->data;
+      $module = ExpansionModule::where('alias','mercury-206')->first();
+      $measurement = new Measurement;
+      $rawData = $measurement->pollModule($module);
+      $data=[];
+
+      foreach($module->devices as $device){
+        foreach (Expansion::sensors($module, $device) as $param => $sensor){
+          preg_match(
+            "/".Expansion::mask($device, $param)."/",
+            $rawData,
+            $matches
+          );
 
 
-      if ($data->power_source<=1){
-        return ['power_status'=>null];
+          if (count($matches) > 1){
+            $s_value = $matches[1];
+
+
+            eval(Expansion::rule($device, $param));
+
+            echo Expansion::rule($device, $param);
+
+            echo "$param => $value\r\n";
+
+            $data[$param] = $value;
+          }
+        }
+        return $data;
       }
-
-      if (!$data->input_voltage){
-        return ['power_status'=>'Нет сети']; //Нет сети
-      }
-
-      return ['power_status'=>'Выключен автомат питания']; ////Выключен автомат питания
+      // $data = StationData::orderBy('id', 'desc')->first()->data;
+      //
+      //
+      // if ($data->power_source<=1){
+      //   return ['power_status'=>null];
+      // }
+      //
+      // if (!$data->input_voltage){
+      //   return ['power_status'=>'Нет сети']; //Нет сети
+      // }
+      //
+      // return ['power_status'=>'Выключен автомат питания']; ////Выключен автомат питания
     }
 
     public static function alertGroups(){
