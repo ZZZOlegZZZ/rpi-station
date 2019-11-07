@@ -1,4 +1,5 @@
 import sys
+import serial
 import commands
 import communications
 
