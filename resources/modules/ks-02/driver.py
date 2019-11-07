@@ -15,11 +15,11 @@ try:
 
     tn.write(chr(27).encode('ascii'))
     time.sleep(1)
-    tn.write("poll\n".encode('ascii'))
+    tn.write("hist\n".encode('ascii'))
 
-    data = tn.read_until(b"IM_DPG").decode('ascii')
+    data = tn.read_until(b"[/HIST]").decode('ascii')
 
-    #tn.write("hist del\n".encode('ascii'))
+    tn.write("hist del\n".encode('ascii'))
 
     print(data)
 
