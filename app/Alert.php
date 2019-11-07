@@ -31,11 +31,11 @@ class Alert extends Model
       $sensors = [
         "input_voltage" => [
           "mask" => "POWER\\s+(-*\\d+\\.*\\d*)",
-          "rule" => "$value = $s_value;"
+          "rule" => '$value = $s_value;'
         ],
         "input_current" => [
           "mask" => "POWER\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
-          "rule" => "$value = $s_value;"
+          "rule" => '$value = $s_value;'
         ]
       ];
       $data=[];
