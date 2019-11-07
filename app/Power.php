@@ -32,7 +32,7 @@ class Power extends Model
             $data[$param] = $value;
           }
         }
-        if ($data['input_voltage'] && intval($data['input_current'])>0){
+        if ($data['input_voltage'] && $data['input_current']){
           $status = 0;
         } elseif($data['input_voltage'] && intval($data['input_current']==0)){
           $status = 1; //Автомат

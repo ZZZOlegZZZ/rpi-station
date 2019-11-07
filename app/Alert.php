@@ -36,7 +36,7 @@ class Alert extends Model
       }
 
       if ($data->status == 2){
-        return ['power_status'=>'Нет сети']; //Нет сети
+        return ['power_status'=>'Нет сетевого питания']; //Нет сети
       }
 
 
