@@ -28,7 +28,7 @@ class Alert extends Model
       $data = StationData::orderBy('id', 'desc')->first()->data;
 
 
-      if (!$data->power_source){
+      if ($data->power_source<=1){
         return ['power_status'=>null];
       }
 
