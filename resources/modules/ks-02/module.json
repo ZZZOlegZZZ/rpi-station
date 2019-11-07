@@ -260,7 +260,7 @@
           "title":"Источник питания",
           "short_title":"Ист.пит.",
           "unit":"",
-          "mask":"PSMON\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "mask":"PSMON\\s+(-*\\d+)",
           "rule":"$value = $s_value;"
         }
       }
