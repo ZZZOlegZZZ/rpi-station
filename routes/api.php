@@ -18,6 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/door/{status}', 'DoorController@doorStatus');
+Route::get('/door', 'DoorController@index');
+Route::get('/power', 'AlertController@power');
 Route::get('/ui', 'ConfigurationController@ui');
 
 Route::get('/lastdata/{ndays}', 'StationDataController@lastData');

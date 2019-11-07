@@ -82,4 +82,8 @@ class AlertController extends Controller
     {
         //
     }
+
+    public function power(){
+      return Alert::powerStatus();
+    }
 }

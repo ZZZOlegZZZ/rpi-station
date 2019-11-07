@@ -58,7 +58,13 @@ class initrzd extends Command
         \App\ExpansionModule::create([
           "id" => 2,
           "alias" => 'mercury-206',
-          "is_optional" => 0,
+          "is_optional" => 1,
+        ]);
+
+        \App\ExpansionModule::create([
+          "id" => 3,
+          "alias" => 'pow-mon',
+          "is_optional" => 1,
         ]);
 
         \App\Device::create([
@@ -92,8 +98,18 @@ class initrzd extends Command
         ]);
 
         \App\Device::create([
+          "expansion_module_id" => 1,
+          "alias" => "power_monitor",
+        ]);
+
+        \App\Device::create([
           "expansion_module_id" => 2,
           "alias" => "counter",
+        ]);
+
+        \App\Device::create([
+          "expansion_module_id" => 3,
+          "alias" => "monitor",
         ]);
     }
 }

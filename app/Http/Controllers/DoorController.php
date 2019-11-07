@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class DoorController extends Controller
 {
+  public function index(){
+    return Door::latest()->first();
+  }
+
   public function doorStatus(Int $status){
     if ($status != 1 && $status != 0){
       return response()->json(['errors' =>

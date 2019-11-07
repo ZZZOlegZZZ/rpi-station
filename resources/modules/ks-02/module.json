@@ -253,6 +253,18 @@
       "sensors":{
       }
     },
+    "power_monitor":{
+      "title": "Монитор питания",
+      "sensors":{
+        "power_source": {
+          "title":"Источник питания",
+          "short_title":"Ист.пит.",
+          "unit":"",
+          "mask":"PSMON\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule":"$value = $s_value;"
+        }
+      }
+    },
     "rail_prism_temperature": {
       "title": "Датчик температуры рельса и балластной призмы",
       "sensors": {

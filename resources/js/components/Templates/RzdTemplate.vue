@@ -58,22 +58,20 @@
                       </wind>
                     </div>
                     <div class="tile is-parent">
-                      <box style = "width: 100%">
-                        Телеметрия
-                      </box>
+                      <telemetry :data = "data" :lastData = "lastData">
+                      </telemetry>
                     </div>
                   </div>
 
                   <div class="tile is-parent">
-                    <box style = "width: 100%">
-                      Рельс и грунт
-                    </box>
+                    <rail-prism :data = "data" :lastData = "lastData">
+                    </rail-prism>
                   </div>
 
                 </div>
             </div>
             <div class="tile is-parent">
-              <alert :alerts="alerts">
+              <alert :alerts="alerts" :doorStatus="doorStatus" :powerStatus ="powerStatus">
               </alert>
             </div>
 
@@ -89,6 +87,8 @@ import AirHumPres from '../DashBlocks/AirHumPres.vue';
 import Precip from '../DashBlocks/Precip.vue';
 import Wind from '../DashBlocks/Wind.vue';
 import Alert from '../DashBlocks/Alert.vue';
+import RailPrism from '../DashBlocks/RailPrism.vue';
+import Telemetry from '../DashBlocks/Telemetry.vue';
 
 import History from '../RzdComponents/History.vue';
 
@@ -102,6 +102,8 @@ export default {
     Wind,
     Alert,
     History,
+    RailPrism,
+    Telemetry,
   },
 
   props: {
@@ -112,10 +114,51 @@ export default {
   data() {
     return {
       history:false,
+      updatingDoor: null,
+      doorStatus: undefined,
+      powerStatus: undefined,
     }
   },
 
   mounted() {
+    this.getDoorStatus();
+    this.updatingDoor = setInterval(() => {
+          this.getDoorStatus();
+          this.getPowerStatus();
+      }, 5000);
+  },
+
+  methods: {
+    getDoorStatus() {
+      axios.get('/api/door')
+      .then((response) => {
+        this.doorStatus = Number(response.data.is_opened);
+      })
+    },
+
+
+    getPowerStatus() {
+      axios.get('/api/power')
+      .then((response) => {
+        this.powerStatus = response.data.power_status;
+      })
+    }
+  },
+
+  watch: {
+    doorStatus: function(newStatus, oldStatus) {
+      if (oldStatus !== undefined && newStatus && !oldStatus){
+        let alertSound = new Audio('audio/sound.wav');
+        alertSound.play();
+      }
+    },
+
+    powerStatus: function(newStatus, oldStatus) {
+      if (oldStatus !== undefined && newStatus && !oldStatus){
+        let alertSound = new Audio('audio/sound.wav');
+        alertSound.play();
+      }
+    },
   },
 
   computed: {

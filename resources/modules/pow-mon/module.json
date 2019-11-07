@@ -1,0 +1,23 @@
+{
+  "module": "pow-mon",
+  "title": "Minimax Power Monitor",
+  "manufacture": "Minimax",
+  "min_length": "150",
+  "engine": "python3",
+  "devices":
+  {
+    "monitor":
+    {
+      "title":"Монитор питания",
+      "sensors": {
+        "battery_voltage":{
+          "title": "Напряжение на аккумуляторе",
+          "short_title": "Напр. акк.",
+          "unit":"В",
+          "mask":"BATTERY:\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        }
+      }
+    }
+  }
+}
