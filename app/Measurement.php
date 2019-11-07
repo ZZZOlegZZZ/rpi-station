@@ -75,7 +75,7 @@ class Measurement extends Model
         $module->alias.
         '/'.$driver.$arguments
       );
-      $output = shell_exec($command);
+      $output = shell_exec($command + "&& (sleep 10 ; kill -TERM $!; sleep 1; kill -9 $!)");
       return $output;
     }
 
