@@ -47,12 +47,18 @@ class Alert extends Model
 
             echo Expansion::rule($device, $param);
 
-            echo "$param => $value\r\n";
+            // echo "$param => $value\r\n";
 
             $data[$param] = $value;
           }
         }
-        return $data;
+        if ($data['input_voltage'] && $data['input_current']){
+          return ['power_status'=> null];
+        } elseif($data['input_voltage'] && $data['input_current']==0){
+          return ['power_status'=>'Выключен автомат питания'];
+        } else {
+          return ['power_status'=>'Нет сети'];
+        }
       }
       // $data = StationData::orderBy('id', 'desc')->first()->data;
       //
