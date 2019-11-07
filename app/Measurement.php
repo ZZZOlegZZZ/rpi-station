@@ -75,7 +75,7 @@ class Measurement extends Model
         $module->alias.
         '/'.$driver.$arguments
       );
-      $output = shell_exec("timeout 20s $command");
+      $output = shell_exec("timeout 30s $command");
       return $output;
     }
 
