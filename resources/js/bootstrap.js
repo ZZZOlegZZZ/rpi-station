@@ -15,7 +15,7 @@ window.moment = moment;
 moment.locale('ru');
 
 
-window.Plotly = Plotly;
+//window.Plotly = Plotly;
 
 
 
