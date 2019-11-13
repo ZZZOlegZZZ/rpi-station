@@ -2,7 +2,7 @@ import  Vue from 'vue';
 // import Vuex from 'vuex';
 import axios from 'axios';
 import moment from 'moment';
-import Plotly from 'plotly.js/dist/plotly';
+//import Plotly from 'plotly.js/dist/plotly';
 
 
 import bulmaVue from './plugins/bulma-vue/bulma-vue.js';
