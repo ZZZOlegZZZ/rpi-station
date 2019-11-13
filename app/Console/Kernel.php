@@ -30,6 +30,10 @@ class Kernel extends ConsoleKernel
           \App\Measurement::pollModules();
           \App\Measurement::processRaw();
         })->everyFiveMinutes();
+
+        $schedule->call(function(){
+          \App\Power::getStatus();
+        })->everyMinute();
     }
 
     /**
