@@ -29,8 +29,9 @@ class ftpClient extends Model
         ]));
 
         foreach(StationData::unsent($client) as $data){
+            $filename = $station_id."_".date("YmdHis", strtotime($data->measured_at));
             if ($filesystem->put(
-                $station_id."_".date("YmdHis", strtotime($data->measured_at)).".json",
+                $filename.".tmp",
                 json_encode([
                   "measured_at" => date("Y-m-d H:i:s", strtotime($data->measured_at)),
                   "st_index" => $station_id,
@@ -38,9 +39,11 @@ class ftpClient extends Model
                 ])
               ))
             {
-              $client->update([
-                'last_sent_data_id' => $data->id
-              ]);
+              if($filesystem->rename($filename.".tmp",$filename.".json")) {
+                $client->update([
+                  'last_sent_data_id' => $data->id
+                ]);
+              }
             } else {
               return false;
             }
