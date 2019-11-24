@@ -2,7 +2,7 @@ import sys
 import time
 import telnetlib
 
-host = '192.168.1.18'
+host = '192.168.1.1'
 port485 = 4002
 port232 = 4001
 
