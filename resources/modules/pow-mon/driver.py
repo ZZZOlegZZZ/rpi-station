@@ -39,7 +39,5 @@ try:
     tn232.close()
 
     print(data)
-
-
- except:
+except:
     exit()
