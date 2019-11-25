@@ -26,7 +26,7 @@ try:
         if i == 5:
             exit()
 
-        sleep(1)
+        time.sleep(1)
 
     data_string = 'POWER'
 
