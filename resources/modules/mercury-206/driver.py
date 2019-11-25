@@ -2,6 +2,7 @@ import sys
 import serial
 import commands
 import communications
+import time
 
 port = '/dev/ttyUSB0'
 
@@ -24,6 +25,8 @@ try:
 
         if i == 5:
             exit()
+
+        sleep(1)
 
     data_string = 'POWER'
 
