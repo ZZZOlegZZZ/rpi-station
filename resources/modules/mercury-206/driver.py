@@ -13,7 +13,17 @@ try:
     conn = communications.open_serial(port=port, baudrate=9600, parity=serial.PARITY_NONE,
         bytesize=8, stopbits=1, timeout=0.5)
 
-    data = commands.instant_vcp(conn, 1)
+
+    i = 0
+    t = True
+    while t:
+        i += 1
+        data = commands.instant_vcp(conn, 1)
+        if len(data):
+            break
+
+        if i == 5:
+            exit()
 
     data_string = 'POWER'
 
