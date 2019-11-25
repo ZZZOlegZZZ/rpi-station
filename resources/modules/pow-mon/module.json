@@ -15,7 +15,7 @@
           "short_title": "Напр. акк.",
           "unit":"В",
           "mask":"BATTERY:\\s+(-*\\d+\\.*\\d*)",
-          "rule":"$value = $s_value;"
+          "rule":"$value = $s_value?$s_value:$battery_tmp;"
         }
       }
     }

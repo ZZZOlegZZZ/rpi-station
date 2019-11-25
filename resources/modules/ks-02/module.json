@@ -262,6 +262,13 @@
           "unit":"",
           "mask":"PSMON\\s+(-*\\d+)",
           "rule":"$value = $s_value;"
+        },
+        "battery_voltage": {
+          "title":"Напряжение на аккумуляторе",
+          "short_title":"Напр. акк.",
+          "unit":"В",
+          "mask":"PSMON\\s+\\S+\\s+(-*\\d+)",
+          "rule":"$value = $s_value/10; $battery_tmp=$s_value/10;"
         }
       }
     },

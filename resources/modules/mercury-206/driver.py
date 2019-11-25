@@ -28,7 +28,7 @@ while t:
             exit()
 
         time.sleep(1)
-        i+=1
+        i += 1
     except:
         i += 1
 
