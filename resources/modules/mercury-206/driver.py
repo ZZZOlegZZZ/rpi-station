@@ -8,11 +8,12 @@ port = '/dev/ttyUSB0'
 
 if len(sys.argv)>1:
     port = sys.argv[1]
-
+    
+conn = communications.open_serial(port=port, baudrate=9600, parity=serial.PARITY_NONE,
+    bytesize=8, stopbits=1, timeout=0.5)
 
 try:
-    conn = communications.open_serial(port=port, baudrate=9600, parity=serial.PARITY_NONE,
-        bytesize=8, stopbits=1, timeout=0.5)
+
 
 
     i = 0
