@@ -20,9 +20,8 @@ try:
     while t:
         i += 1
         data = commands.instant_vcp(conn, 1)
-        print data
-        print len(data)
-        if len(data):
+
+        if data:
             break
 
         if i == 5:
