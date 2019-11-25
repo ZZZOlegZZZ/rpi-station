@@ -26,10 +26,10 @@ try:
     print("LINK OPENED")
 
 
-    tn232.write("\n".encode('ascii'))
-    time.sleep(1)
-    data = tn232.read_until(b"ENTER OPEN>").decode('ascii')
-    print("ENTER OPEN")
+    # tn232.write("\n".encode('ascii'))
+    # time.sleep(1)
+    # data = tn232.read_until(b"ENTER OPEN>").decode('ascii')
+    # print("ENTER OPEN")
 
     tn232.write("open\n".encode('ascii'))
     time.sleep(1)
