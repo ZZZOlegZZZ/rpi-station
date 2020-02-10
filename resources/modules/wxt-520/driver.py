@@ -14,6 +14,8 @@ try:
 
     tn.write("0R\n".encode('ascii'))
 
+    time.sleep(1)
+
     data = tn.read_lazy().decode('ascii')
 
     print(data)
