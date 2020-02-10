@@ -12,9 +12,10 @@ if len(sys.argv)>1:
 try:
     tn = telnetlib.Telnet(host, port)
 
-    tn.write("@1 M\n".encode('ascii'))
+    tn.write("@1 M\r\n".encode('ascii'))
+    time.sleep(3)
 
-    data = tn.read_all().decode('ascii')
+    data = tn.read_very_eager().decode('ascii')
 
     print(data)
 
