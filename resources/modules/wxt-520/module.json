@@ -58,7 +58,7 @@
           "unit":"",
           "mask":"Dm=(\\d+\\.*\\d*)D",
           "rule":"($s_value == -9999)?$tmp = null:$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
-        },
+        }
       }
     }
   }
