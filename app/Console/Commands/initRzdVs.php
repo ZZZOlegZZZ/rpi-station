@@ -11,7 +11,7 @@ class initRzdVs extends Command
      *
      * @var string
      */
-    protected $signature = 'initrzd {--set_id=}';
+    protected $signature = 'initRzdVs {--set_id=}';
 
     /**
      * The console command description.
