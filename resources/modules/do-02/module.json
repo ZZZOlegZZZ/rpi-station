@@ -6,7 +6,7 @@
   "engine": "python3",
   "devices":
   {
-    "do-02":
+    "precipitation":
     {
       "title": "Комплексный датчик погоды",
       "sensors": {
