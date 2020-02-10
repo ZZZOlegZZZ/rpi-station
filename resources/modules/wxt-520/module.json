@@ -1,0 +1,65 @@
+{
+  "module": "wxt-520",
+  "title": "Vaisala WXT-520",
+  "manufacture": "Vaisala",
+  "min_length": "100",
+  "engine": "python3",
+  "devices":
+  {
+    "wxt520":
+    {
+      "title": "Комплексный датчик погоды",
+      "sensors": {
+        "t_air": {
+          "title":"Температура воздуха",
+          "short_title":"t возд.",
+          "unit":"\u00b0C",
+          "mask":"Ta=(-*\\d+\\.*\\d*)C",
+          "rule":"$value = ($s_value == -9999)?null:$s_value"
+        },
+        "humidity": {
+          "title":"Влажность воздуха",
+          "short_title":"Влажн.",
+          "unit":"%",
+          "mask":"Ua=(-*\\d+\\.*\\d*)P",
+          "rule":"($s_value == -9999)?$value = null:$value = $s_value"
+        },
+        "pressure": {
+          "title":"Давление",
+          "short_title":"Давление",
+          "unit":"мм рт. ст.",
+          "mask":"Pa=(-*\\d+\\.*\\d*)H",
+          "rule":"($s_value == -9999)?$value = null: $value = $s_value;"
+        },
+        "wind_speed": {
+          "title":"Скорость ветра",
+          "short_title":"Ск. ветра",
+          "unit":"м/с",
+          "mask":"Sm=(\\d+\\.*\\d*)M",
+          "rule":"($s_value == -9999)?$value = null:$value = $s_value;"
+        },
+        "wind_gusts": {
+          "title":"Порывы ветра",
+          "short_title":"Пор. ветра",
+          "unit":"м/с",
+          "mask":"Sx=(\\d+\\.*\\d*)M",
+          "rule":"($s_value == -9999)?$value = null:$value = $s_value;"
+        },
+        "wind_dir": {
+          "title":"Напралвение ветра",
+          "short_title":"Напр. ветра",
+          "unit":"град.",
+          "mask":"Dm=(\\d+\\.*\\d*)D",
+          "rule":"($s_value == -9999)?$value = null:$value = $s_value;"
+        },
+        "wind_rhumb": {
+          "title":"Напралвение ветра (румб)",
+          "short_title":"Напр. ветра",
+          "unit":"",
+          "mask":"Dm=(\\d+\\.*\\d*)D",
+          "rule":"($s_value == -9999)?$tmp = null:$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
+        },
+      }
+    }
+  }
+}
