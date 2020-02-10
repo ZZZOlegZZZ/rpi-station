@@ -15,14 +15,14 @@
           "short_title":"t возд.",
           "unit":"\u00b0C",
           "mask":"Ta=(-*\\d+\\.*\\d*)C",
-          "rule":"$value = ($s_value == -9999)?null:$s_value"
+          "rule":"$value = ($s_value == -9999)?null:$s_value;"
         },
         "humidity": {
           "title":"Влажность воздуха",
           "short_title":"Влажн.",
           "unit":"%",
           "mask":"Ua=(-*\\d+\\.*\\d*)P",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value"
+          "rule":"($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "pressure": {
           "title":"Давление",

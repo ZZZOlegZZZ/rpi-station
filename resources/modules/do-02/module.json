@@ -6,7 +6,7 @@
   "engine": "python3",
   "devices":
   {
-    "wxt520":
+    "do-02":
     {
       "title": "Комплексный датчик погоды",
       "sensors": {
