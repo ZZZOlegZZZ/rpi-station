@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\initrzd::class
+        Commands\initrzd::class,
+        Commands\initRzdVs::class
     ];
 
     /**
