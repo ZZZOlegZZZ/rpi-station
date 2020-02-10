@@ -21,7 +21,7 @@ try:
     tn.write("0R\n".encode('ascii'))
     time.sleep(1)
 
-    data = tn.read_until(b"Vr=").decode('ascii')
+    data = tn.read_until(b"Vr", timeout = 3).decode('ascii')
 
     print(data)
 
