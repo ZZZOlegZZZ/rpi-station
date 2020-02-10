@@ -3,7 +3,7 @@ import time
 import telnetlib
 
 host = '192.168.1.1'
-port = 4001
+port = 4002
 
 if len(sys.argv)>1:
     host = sys.argv[1]
