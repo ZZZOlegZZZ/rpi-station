@@ -14,7 +14,7 @@
           "short_title":"Tр",
           "unit":"\u00b0C",
           "mask":"@1:0\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -999)?null:$s_value;"
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
         },
         "t_prism_1": {
           "title":"Температура балластной призмы на глубине 5 см",
