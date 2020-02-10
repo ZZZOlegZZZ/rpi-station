@@ -17,7 +17,7 @@ try:
 
     tn.write("0R\n".encode('ascii'))
 
-    data = tn.read_until('ok', 2).decode('ascii')
+    data = tn.read_until('Vr=').decode('ascii')
 
     print(data)
 
