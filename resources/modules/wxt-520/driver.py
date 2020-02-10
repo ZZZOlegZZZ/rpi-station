@@ -18,7 +18,7 @@ try:
 
     time.sleep(1)
 
-    data = tn.read_all().decode('ascii')
+    data = tn.read_some().decode('ascii')
 
     print(data)
 
