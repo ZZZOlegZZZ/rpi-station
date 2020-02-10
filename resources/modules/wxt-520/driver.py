@@ -14,6 +14,8 @@ try:
     tn.write(chr(27).encode('ascii'))
     tn.write(chr(27).encode('ascii'))
     tn.write(chr(27).encode('ascii'))
+    tn.write("\n".encode('ascii'))
+    
     time.sleep(1)
 
     tn.write("0R\n".encode('ascii'))
