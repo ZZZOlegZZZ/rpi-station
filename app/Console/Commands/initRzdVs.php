@@ -84,8 +84,8 @@ class initRzdVs extends Command
 
 
       \App\ftpClient::create([
-        // "host" => '217.175.154.119',
-        "host" => "127.0.0.1",
+        "host" => '217.175.154.119',
+        // "host" => "127.0.0.1",
         "port" => 21,
         "login" => "userzd",
         "password" => "userzd",
