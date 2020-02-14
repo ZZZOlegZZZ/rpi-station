@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\initrzd::class,
-        Commands\initRzdVs::class
+        Commands\initRzdVs::class,
+        Commands\initrzdtst::class,
     ];
 
     /**
