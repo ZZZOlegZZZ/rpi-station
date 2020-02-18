@@ -16,9 +16,9 @@ try:
     tn485 = telnetlib.Telnet(host, port485)
 
 
-    tn485.write("0@reset\n".encode('ascii'))
-    time.sleep(2)
-    tn485.close()
+    # tn485.write("0@reset\n".encode('ascii'))
+    # time.sleep(2)
+    # tn485.close()
 
     tn232.write("link 1\n".encode('ascii'))
     # time.sleep(1)
