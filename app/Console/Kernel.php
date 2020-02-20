@@ -35,6 +35,9 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function(){
           \App\Power::getStatus();
+        })->everyMinute();
+
+        $schedule->call(function(){
           \App\ftpClient::upload();
         })->everyMinute();
     }
