@@ -18,6 +18,7 @@ try:
     data = tn.read_very_eager().decode('ascii')
 
     print(data)
+    tn.write("r\r\n".encode('ascii'))
 
 
 except:
