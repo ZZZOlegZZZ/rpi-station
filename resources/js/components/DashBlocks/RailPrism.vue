@@ -46,7 +46,7 @@
           {{lastData.data.t_prism_4}}&deg;C
         </p>
         <p class="subtitle is-6">
-          Т 30см
+          Т 20см
         </p>
       </div>
 

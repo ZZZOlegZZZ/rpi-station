@@ -71,7 +71,7 @@
               <td>{{formatDate(data_chunk.measured_at)}}</td>
               <td>{{data_chunk.data.t_air}}</td>
               <td>{{data_chunk.data.humidity}}</td>
-              <td>{{data_chunk.data.humidity}}</td>
+              <td>{{data_chunk.data.pressure}}</td>
               <td>{{data_chunk.data.precipitation_type}}</td>
               <td>{{data_chunk.data.precipitation_intensity}}</td>
               <td>{{data_chunk.data.wind_rhumb}}</td>
