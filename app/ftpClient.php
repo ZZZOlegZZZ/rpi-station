@@ -17,7 +17,7 @@ class ftpClient extends Model
             'password' => 'RzdTst1',
 
             'port' => '21',
-            // 'root' => $client->directory,
+            'root' => '',
             'passive' => true,
             // 'ssl' => true,
             'timeout' => 30,
