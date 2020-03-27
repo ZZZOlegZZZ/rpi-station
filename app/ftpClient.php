@@ -10,6 +10,29 @@ class ftpClient extends Model
 {
     protected $guarded = [];
 
+    public static function sendTestData(){
+        $filesystem = new Filesystem(new Adapter([
+            'host' => '89.208.153.61',
+            'username' => 'rzdtst',
+            'password' => 'RzdTst1',
+
+            'port' => '21',
+            // 'root' => $client->directory,
+            'passive' => true,
+            // 'ssl' => true,
+            'timeout' => 30,
+        ]));
+
+        $filename = 'kolhoztst'."_".date("YmdHis").'.json';
+        $filesystem->put(
+            $filename,
+            json_encode([
+              "measured_at" => date("Y-m-d H:i:s"),
+        ]));
+
+    }
+
+
     public static function upload(){
       foreach (ftpClient::all() as $client){
         $station_id = $client->station_id
@@ -27,6 +50,8 @@ class ftpClient extends Model
             // 'ssl' => true,
             'timeout' => 30,
         ]));
+
+
 
         foreach(StationData::unsent($client) as $data){
             $filename = $station_id."_".date("YmdHis", strtotime($data->measured_at));
