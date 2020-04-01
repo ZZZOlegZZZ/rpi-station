@@ -16,7 +16,7 @@ conn = serial.Serial(port, 9600, timeout=0.1)
 # f.write('date_time;t_air;humidity;wind_speed;wind_gusts;wind_dir;accumulation_rainfall;uv;light;pressure\n')
 # f.close()
 #
-dbconn = sqlite3.connect('test.db')
+dbconn = sqlite3.connect('/var/www/vhosts/rpi-station/database/rpi-station.sqlite')
 cursor = dbconn.cursor()
 lastData = cursor.execute('SELECT data FROM plugin_wh24p ORDER BY id DESC LIMIT 1;')
 cursor.execute('DELETE from plugin_wh24p;')
