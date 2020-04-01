@@ -25,7 +25,7 @@ while True:
     result = conn.readline().hex()
 
     if len(result) == 42:
-        
+
         print(result)
 
 
@@ -76,4 +76,4 @@ while True:
         cursor.execute("insert into plugin_wh24p (data) VALUES(?)",
             [json.dumps(data)]
         )
-        conn.commit()
+        dbconn.commit()
