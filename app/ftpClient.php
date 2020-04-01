@@ -11,16 +11,17 @@ class ftpClient extends Model
     protected $guarded = [];
 
     public static function sendTestData(){
+        $client=ftpClient::first();
         $filesystem = new Filesystem(new Adapter([
-            'host' => '89.208.153.61',
-            'username' => 'rzdtst',
-            'password' => 'RzdTst1',
+          'host' => $client->host,
+          'username' => $client->login,
+          'password' => $client->password,
 
-            'port' => '21',
-            'root' => '',
-            'passive' => true,
-            // 'ssl' => true,
-            'timeout' => 30,
+          'port' => $client->port,
+          'root' => $client->directory,
+          'passive' => true,
+          // 'ssl' => true,
+          'timeout' => 30,
         ]));
 
         $filename = 'kolhoztst'."_".date("YmdHis").'.json';

@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         Commands\initRzdVs::class,
         Commands\initrzdtst::class,
         Commands\sendTestData::class,
+        Commands\initWh24p::class,
     ];
 
     /**
