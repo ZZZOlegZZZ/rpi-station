@@ -13,7 +13,10 @@ conn = serial.Serial(port, 9600, timeout=0.1)
 
 dbconn = sqlite3.connect('/var/www/vhosts/rpi-station/database/rpi-station.sqlite')
 cursor = dbconn.cursor()
-lastData = cursor.execute('SELECT data FROM plugin_wh24p ORDER BY id DESC LIMIT 1;')
+
+cursor.execute('SELECT data->accumulation_rainfall as rainfall FROM plugin_wh24p ORDER BY id DESC LIMIT 1;')
+lastData = cursor.fetchall()
+print(lastData);
 
 
 cursor.execute('DELETE from plugin_wh24p;')
@@ -69,6 +72,7 @@ while True:
             "uv": uv,
             "light": light,
             "pressure": pressure,
+            "accumulation_rainfall": accumulation_rainfall,
         }
 
         cursor.execute("insert into plugin_wh24p (data) VALUES(?)",
