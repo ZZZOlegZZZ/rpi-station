@@ -73,7 +73,7 @@ while True:
             "light": light,
             "pressure": pressure,
             "accumulation_rainfall": accumulation_rainfall,
-            "rainfall": last_acc_rainfall==None?0:accumulation_rainfall-last_acc_rainfall
+            "rainfall": 0 if last_acc_rainfall==None else accumulation_rainfall-last_acc_rainfall
         }
 
         cursor.execute("insert into plugin_wh24p (data) VALUES(?)",
