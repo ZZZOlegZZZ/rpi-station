@@ -16,7 +16,7 @@ cursor = dbconn.cursor()
 
 cursor.execute('SELECT json_extract(data, "$.accumulation_rainfall") FROM plugin_wh24p ORDER BY id DESC LIMIT 1;')
 lastData = cursor.fetchall()
-print(lastData);
+print(lastData[0][0]);
 
 
 cursor.execute('DELETE from plugin_wh24p;')
