@@ -16,7 +16,7 @@ cursor = dbconn.cursor()
 
 cursor.execute('SELECT json_extract(data, "$.accumulation_rainfall") FROM plugin_wh24p ORDER BY id DESC LIMIT 1;')
 lastData = cursor.fetchall()
-print(lastData[0][0]);
+last_acc_rainfall = lastData[0][0];
 
 
 cursor.execute('DELETE from plugin_wh24p;')
@@ -73,6 +73,7 @@ while True:
             "light": light,
             "pressure": pressure,
             "accumulation_rainfall": accumulation_rainfall,
+            "rainfall": last_acc_rainfall==None?0:accumulation_rainfall-last_acc_rainfall
         }
 
         cursor.execute("insert into plugin_wh24p (data) VALUES(?)",
