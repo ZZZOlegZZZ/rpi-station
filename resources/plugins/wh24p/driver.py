@@ -76,6 +76,8 @@ while True:
             "rainfall": 0 if last_acc_rainfall==None else accumulation_rainfall-last_acc_rainfall
         }
 
+        last_acc_rainfall = accumulation_rainfall
+
         cursor.execute("insert into plugin_wh24p (data) VALUES(?)",
             [json.dumps(data)]
         )
