@@ -53,6 +53,8 @@ while True:
 
         pressure = int(result[34:40], 16)/100
 
+        rainfall = 0 if last_acc_rainfall==None else accumulation_rainfall-last_acc_rainfall
+
         print('wind_dir =', wind_dir)
         print('t_air =', t_air)
         print('humidity =', humidity)
@@ -73,7 +75,7 @@ while True:
             "light": light,
             "pressure": pressure,
             "accumulation_rainfall": accumulation_rainfall,
-            "rainfall": 0 if last_acc_rainfall==None else accumulation_rainfall-last_acc_rainfall
+            "rainfall": rainfall
         }
 
         last_acc_rainfall = accumulation_rainfall
