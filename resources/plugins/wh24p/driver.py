@@ -64,6 +64,7 @@ while True:
         print('uv =', uv)
         print('light =', light)
         print('pressure =', pressure)
+        print('rainfall =', rainfall)
 
         data = {
             "t_air": t_air,
