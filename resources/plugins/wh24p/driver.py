@@ -1,6 +1,7 @@
 import serial
 import sqlite3
 import json
+import sys
 # from datetime import datetime, date, time
 
 port = '/dev/ttyUSB0'
