@@ -24,8 +24,7 @@ cursor.execute('DELETE from plugin_wh24p;')
 while True:
     result = conn.readline().hex()
 
-    if len(result) == 42:
-        print(datetime.strftime(datetime.now(), '%Y-%m-%d %H:%M:%S'))
+    if len(result) == 42;
         print(result)
 
 
