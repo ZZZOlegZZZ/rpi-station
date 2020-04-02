@@ -45,6 +45,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function(){
           \App\ftpClient::upload();
+          \App\PushClient::pushData();
         })->everyMinute();
 
         $schedule->call(function(){
