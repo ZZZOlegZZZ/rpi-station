@@ -28,4 +28,14 @@ if int(power)>0:
         from plugin_wh24p
         where measured_at > DATETIME(datetime("now","-%s minute"))""" % (power)
     ).fetchall()[0]
-    print(accumulated_data)
+
+print("t_air " + round(last_data[0], 1))
+print("humidity " + round(last_data[1], 1))
+print("pressure " + round(last_data[2]/1.333, 1))
+print("uv " + round(last_data[3], 0))
+print("light " + round(last_data[4], 1))
+print("wind_dir " + round(accumulated_data[0], 0))
+print("wind_speed " + round(accumulated_data[1], 1))
+print("wind_gusts " + round(accumulated_data[2], 1))
+print("precipitation_type " + "1" if float(accumulated_data[3]) > 0 else "0")
+print("precipitation_amount " + round(accumulated_data[3], 1)))
