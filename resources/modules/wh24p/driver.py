@@ -11,7 +11,7 @@ poll_intv = settings[1]
 intv = power if int(power)>0 else poll_intv
 
 data_ready = int(cursor.execute("""select count(id) from plugin_wh24p
-where measured_at < DATETIME(datetime("now","-%s minute"))""" % (intv))) > 0
+where measured_at < DATETIME(datetime("now","-%s minute"))""" % (str(intv))).fetchall()[0][0]) > 0
 
 if not data_ready:
     exit(0)
