@@ -34,12 +34,11 @@ accumulated_data = cursor.execute(
         avg(json_extract(data, '$.wind_speed')),
         max(json_extract(data, '$.wind_gusts')),
         sum(json_extract(data, '$.rainfall'))
-    from plugin_wh24p
-    where measured_at > DATETIME(datetime("now","-%s minute"))""" % (intv)
+    from plugin_wh24p"""
 ).fetchall()[0]
 
-# cursor.execute('DELETE from plugin_wh24p;')
-# dbconn.commit()
+cursor.execute('DELETE from plugin_wh24p;')
+dbconn.commit()
 
 print("measured_at " + last_data[0])
 print("t_air " + str(round(float(last_data[1]), 1)))
