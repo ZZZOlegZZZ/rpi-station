@@ -50,12 +50,10 @@ class initWh24p extends Command
 
       ]);
 
-      \App\ftpClient::create([
+      \App\PushClient::create([
         "host" => 'agro.mm94.ru',
         // "host" => "127.0.0.1",
-        "port" => 21,
-        "login" => "ftpms",
-        "password" => "KleverStation24",
+        "port" => 80,
         "station_id" => $this->option('id')
       ]);
     }
