@@ -24,6 +24,15 @@
           "mask":"humidity\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = $s_value;"
         },
+        
+        "dew_point": {
+          "title":"Температура точки росы",
+          "short_title":"tтр",
+          "unit":"\u00b0C",
+          "mask":"dew_point\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        },
+
         "pressure": {
           "title":"Давление",
           "short_title":"Давление",
@@ -81,7 +90,7 @@
         "precipitation_intensity": {
           "title":"Интенсивность осадков",
           "short_title":"Инт. осадков",
-          "unit":"мм",
+          "unit":"мм/ч",
           "mask":"precipitation_intensity\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = $s_value;"
         }
