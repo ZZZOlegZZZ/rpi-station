@@ -29,6 +29,9 @@ class PushClient extends Model
             ]
           ]);
 
+          echo ($response->getStatusCode());
+          echo ($response->getBody()->getContents());
+
           if($response->getStatusCode() == 201) {
             $client->last_sent_data_id = $data->id;
             $client->save();
