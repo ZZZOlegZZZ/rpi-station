@@ -29,11 +29,11 @@ if int(power)>0:
         where measured_at > DATETIME(datetime("now","-%s minute"))""" % (power)
     ).fetchall()[0]
 
-print("t_air " + round(float(last_data[0]), 1))
-print("humidity " + round(float(last_data[1]), 1))
-print("pressure " + round(float(last_data[2])/1.333, 1))
-print("uv " + round(float(last_data[3]), 0))
-print("light " + round(float(last_data[4]), 1))
+print("t_air " + round(float(last_data[1]), 1))
+print("humidity " + round(float(last_data[2]), 1))
+print("pressure " + round(float(last_data[3])/1.333, 1))
+print("uv " + round(float(last_data[4]), 0))
+print("light " + round(float(last_data[5]), 1))
 print("wind_dir " + round(float(accumulated_data[0]), 0))
 print("wind_speed " + round(float(accumulated_data[1]), 1))
 print("wind_gusts " + round(float(accumulated_data[2]), 1))
