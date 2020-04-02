@@ -4,9 +4,9 @@ import json
 dbconn = sqlite3.connect('/var/www/vhosts/rpi-station/database/rpi-station.sqlite')
 cursor = dbconn.cursor()
 
-cursor.execute("SELECT json_extract(settings, '$.power'), json_extract(settings, '$.poll_intv') from configurations").fetchall()[0][0]
-power = cursor.fetchall()[0][0]
-poll_intv = cursor.fetchall()[0][1]
+settings = cursor.execute("SELECT json_extract(settings, '$.power'), json_extract(settings, '$.poll_intv') from configurations").fetchall()[0]
+power = settings[0]
+poll_intv = settings[1]
 
 intv = power if int(power)>0 else poll_intv
 
