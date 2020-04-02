@@ -6,7 +6,7 @@ cursor = dbconn.cursor()
 
 power = cursor.execute("SELECT json_extract(settings, '$.power') from configurations").fetchall()[0][0]
 
-print (type(power))
+print (type(int(power)))
 
 
 # if power>0:
