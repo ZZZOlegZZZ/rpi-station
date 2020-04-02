@@ -24,7 +24,7 @@ if int(power)>0:
             avg(json_extract(data, '$.wind_dir')),
             avg(json_extract(data, '$.wind_speed')),
             max(json_extract(data, '$.wind_gusts')),
-            sum(json_extract(data, '$.rainfall')),
+            sum(json_extract(data, '$.rainfall'))
         from plugin_wh24p
         where measured_at > DATETIME(datetime("now","- """ + power + """ minute"))'"""
     ).fetchall()[0]
