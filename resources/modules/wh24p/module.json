@@ -76,6 +76,14 @@
           "unit":"мм",
           "mask":"precipitation_amount\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = $s_value;"
+        },
+
+        "precipitation_intensity": {
+          "title":"Интенсивность осадков",
+          "short_title":"Инт. осадков",
+          "unit":"мм",
+          "mask":"precipitation_intensity\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
         }
       }
     }
