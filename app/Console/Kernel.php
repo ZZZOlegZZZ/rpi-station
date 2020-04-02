@@ -36,6 +36,14 @@ class Kernel extends ConsoleKernel
         })->everyFiveMinutes();
 
         $schedule->call(function(){
+          if (intval(\App\Configuration::find(1)->settings->power) == 0){
+            return null;
+          }
+          \App\Measurement::pollModules();
+          \App\Measurement::processRaw();
+        })->everyMinute();
+
+        $schedule->call(function(){
           \App\ftpClient::upload();
         })->everyMinute();
 
