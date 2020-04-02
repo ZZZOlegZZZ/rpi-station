@@ -62,9 +62,31 @@ class initWh24p extends Command
         "is_optional" => 0,
       ]);
 
+      \App\ExpansionModule::create([
+        "id" => 2,
+        "alias" => 'dpg-rpi',
+        "is_optional" => 1,
+      ]);
+
+      \App\ExpansionModule::create([
+        "id" => 3,
+        "alias" => 'ws-adda-board',
+        "is_optional" => 1,
+      ]);
+
       \App\Device::create([
         "expansion_module_id" => 1,
         "alias" => "complex",
+      ]);
+
+      \App\Device::create([
+        "expansion_module_id" => 2,
+        "alias" => "soil_temperature",
+      ]);
+
+      \App\Device::create([
+        "expansion_module_id" => 3,
+        "alias" => "pr_2_6",
       ]);
     }
 }
