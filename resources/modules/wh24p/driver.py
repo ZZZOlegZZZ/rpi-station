@@ -26,6 +26,6 @@ if int(power)>0:
             max(json_extract(data, '$.wind_gusts')),
             sum(json_extract(data, '$.rainfall'))
         from plugin_wh24p
-        where measured_at > DATETIME(datetime("now","-%s minute"))'""" % (power)
+        where measured_at > DATETIME(datetime("now","-%s minute"))""" % (power)
     ).fetchall()[0]
     print(accumulated_data)
