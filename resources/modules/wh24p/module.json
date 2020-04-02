@@ -24,6 +24,13 @@
           "mask":"humidity\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = $s_value;"
         },
+        "pressure": {
+          "title":"Давление",
+          "short_title":"Давление",
+          "unit":"мм рт. ст.",
+          "mask":"pressure\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        },
         "wind_speed": {
           "title":"Скорость ветра",
           "short_title":"Ск. ветра",
@@ -38,6 +45,7 @@
           "mask":"wind_gusts\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = $s_value;"
         },
+
         "wind_dir": {
           "title":"Напралвение ветра",
           "short_title":"Напр. ветра",
