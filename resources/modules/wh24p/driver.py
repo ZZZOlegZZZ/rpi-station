@@ -14,7 +14,7 @@ if power>0:
             json_extract(data, '$.humidity'),
             json_extract(data, '$.pressure'),
             json_extract(data, '$.uv'),
-            json_extract(data, '$.light'),
+            json_extract(data, '$.light')
         from plugin_wh24p"""
     ).fetchall[0]
     print(last_data)
