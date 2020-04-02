@@ -1,0 +1,75 @@
+{
+  "module": "wh24p",
+  "title": "Misol WH24P",
+  "manufacture": "Misol",
+  "min_length": "10",
+  "engine": "python3",
+  "devices":
+  {
+    "complex":
+    {
+      "title": "Комплексная станция",
+      "sensors": {
+        "t_air": {
+          "title":"Температура воздуха",
+          "short_title":"t возд.",
+          "unit":"\u00b0C",
+          "mask":"t_air\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        },
+        "humidity": {
+          "title":"Влажность воздуха",
+          "short_title":"Влажн.",
+          "unit":"%",
+          "mask":"humidity\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        },
+        "wind_speed": {
+          "title":"Скорость ветра",
+          "short_title":"Ск. ветра",
+          "unit":"м/с",
+          "mask":"wind_speed\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        },
+        "wind_gusts": {
+          "title":"Порывы ветра",
+          "short_title":"Пор. ветра",
+          "unit":"м/с",
+          "mask":"wind_gusts\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        },
+        "wind_dir": {
+          "title":"Напралвение ветра",
+          "short_title":"Напр. ветра",
+          "unit":"град.",
+          "mask":"wind_dir\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        },
+
+        "wind_rhumb": {
+          "title":"Напралвение ветра (румб)",
+          "short_title":"Напр. ветра",
+          "unit":"",
+          "mask":"wind_dir\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
+        },
+
+        "precipitation_type": {
+          "title":"Тип осадков",
+          "short_title":"Тип осадков",
+          "unit":"",
+          "mask":"precipitation_type\\s+(-*\\d+)",
+          "rule":"($s_value == -9999)?$value = null:$value = $s_value;"
+        },
+
+        "precipitation_amount": {
+          "title":"Количествово осадков",
+          "short_title":"Кол-во осадков",
+          "unit":"мм",
+          "mask":"precipitation_amount\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        }
+      }
+    }
+  }
+}

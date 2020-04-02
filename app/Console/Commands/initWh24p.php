@@ -52,9 +52,19 @@ class initWh24p extends Command
 
       \App\PushClient::create([
         "host" => 'agro.mm94.ru',
-        // "host" => "127.0.0.1",
         "port" => 80,
         "station_id" => $this->option('id')
+      ]);
+
+      \App\ExpansionModule::create([
+        "id" => 1,
+        "alias" => 'wh24p',
+        "is_optional" => 0,
+      ]);
+
+      \App\Device::create([
+        "expansion_module_id" => 1,
+        "alias" => "complex",
       ]);
     }
 }
