@@ -10,6 +10,12 @@ poll_intv = settings[1]
 
 intv = power if int(power)>0 else poll_intv
 
+data_ready = int(cursor.execute("""select count(id) from plugin_wh24p
+where measured_at < DATETIME(datetime("now","-%s minute"))""" % (intv))) > 0
+
+if !data_ready:
+    exit(0)
+
 last_data = cursor.execute(
     """SELECT
         measured_at,
@@ -32,9 +38,10 @@ accumulated_data = cursor.execute(
     where measured_at > DATETIME(datetime("now","-%s minute"))""" % (intv)
 ).fetchall()[0]
 
-cursor.execute('DELETE from plugin_wh24p;')
-dbconn.commit()
+# cursor.execute('DELETE from plugin_wh24p;')
+# dbconn.commit()
 
+print("measured_at " + last_data[0])
 print("t_air " + str(round(float(last_data[1]), 1)))
 print("humidity " + str(round(float(last_data[2]), 1)))
 print("pressure " + str(round(float(last_data[3])/1.333, 1)))
