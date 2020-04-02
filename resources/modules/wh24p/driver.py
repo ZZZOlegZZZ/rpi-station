@@ -15,6 +15,17 @@ if int(power)>0:
             json_extract(data, '$.pressure'),
             json_extract(data, '$.uv'),
             json_extract(data, '$.light')
-        from plugin_wh24p"""
+        from plugin_wh24p
+        order by measured_at desc limit 1"""
     ).fetchall()[0]
-    print(last_data)
+
+    accumulated_data = cursor.execute(
+        """SELECT
+            avg(json_extract(data, '$.wind_dir')),
+            avg(json_extract(data, '$.wind_speed')),
+            max(json_extract(data, '$.wind_gusts')),
+            sum(json_extract(data, '$.rainfall')),
+        from plugin_wh24p
+        where measured_at > DATETIME(datetime("now","- """ + power + """ minute"))'"""
+    ).fetchall()[0]
+    print(accumulated_data)
