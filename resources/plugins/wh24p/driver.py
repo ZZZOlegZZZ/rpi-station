@@ -14,9 +14,12 @@ conn = serial.Serial(port, 9600, timeout=0.1)
 dbconn = sqlite3.connect('/var/www/vhosts/rpi-station/database/rpi-station.sqlite')
 cursor = dbconn.cursor()
 
-cursor.execute('SELECT json_extract(data, "$.accumulation_rainfall") FROM plugin_wh24p ORDER BY id DESC LIMIT 1;')
-lastData = cursor.fetchall()
-last_acc_rainfall = lastData[0][0];
+try:
+    cursor.execute('SELECT json_extract(data, "$.accumulation_rainfall") FROM plugin_wh24p ORDER BY id DESC LIMIT 1;')
+    lastData = cursor.fetchall()
+    last_acc_rainfall = lastData[0][0]
+except:
+    last_acc_rainfall = None
 
 
 cursor.execute('DELETE from plugin_wh24p;')
