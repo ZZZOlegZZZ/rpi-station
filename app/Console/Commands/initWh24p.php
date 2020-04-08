@@ -87,6 +87,14 @@ class initWh24p extends Command
       \App\Device::create([
         "expansion_module_id" => 3,
         "alias" => "pr_2_6",
+        "config" => (object)[
+          "mask"=>(object)[
+            "soil_moisture_1" => "ad0",
+            "soil_moisture_2" => "ad1",
+            "soil_moisture_3" => "ad2",
+            "soil_moisture_4" => "ad3",
+          ]
+        ]
       ]);
     }
 }
