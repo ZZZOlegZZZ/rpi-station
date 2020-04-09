@@ -35,12 +35,12 @@ class Kernel extends ConsoleKernel
           \App\Measurement::processRaw();
         })->everyFiveMinutes();
 
-        // $schedule->call(function(){
-        //   if (intval(\App\Configuration::find(1)->settings->power) > 0){
-        //     \App\Measurement::pollModules();
-        //     \App\Measurement::processRaw();
-        //   }
-        // })->everyMinute();
+        $schedule->call(function(){
+          if (isset(\App\Configuration::find(1)->settings->power) && intval(\App\Configuration::find(1)->settings->power) > 0){
+            \App\Measurement::pollModules();
+            \App\Measurement::processRaw();
+          }
+        })->everyMinute();
 
         $schedule->call(function(){
           \App\ftpClient::upload();
