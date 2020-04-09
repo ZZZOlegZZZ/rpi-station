@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
         })->everyFiveMinutes();
 
         $schedule->call(function(){
-          if (intval(\App\Configuration::find(1)->settings->power) !== 0){
+          if (intval(\App\Configuration::find(1)->settings->power) > 0){
             \App\Measurement::pollModules();
             \App\Measurement::processRaw();
           }
