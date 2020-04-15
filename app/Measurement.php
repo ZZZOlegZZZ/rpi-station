@@ -41,7 +41,7 @@ class Measurement extends Model
         } else {
           if (!$module->is_optional) {
             $measurement->setInvalid();
-            return false;
+            // return false;
           }
         }
       }
