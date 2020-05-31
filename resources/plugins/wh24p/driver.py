@@ -2,14 +2,40 @@ import serial
 import sqlite3
 import json
 import sys
+import serial.tools.list_ports
+import time
 # from datetime import datetime, date, time
 
-port = '/dev/ttyUSB0'
+# port = '/dev/ttyUSB0'
 
-if len(sys.argv)>1:
-    port = sys.argv[1]
+# if len(sys.argv)>1:
+#     port = sys.argv[1]
 
-conn = serial.Serial(port, 9600, timeout=0.1)
+ports = serial.tools.list_ports.comports()
+usb_ports = set()
+for port in ports:
+    if 'USB' in port[1]:
+        usb_ports.add(port[0])
+
+port_found = False
+
+for usb in usb_ports:
+    conn = serial.Serial(usb, 9600, timeout=0.1)
+    timeout = time.time() + 20
+
+    while True:
+        resp = conn.readline().hex()
+        if len(resp)==42:
+            print (resp)
+            port_found = True
+            break
+
+        if time.time()>timeout:
+            break
+
+    if port_found:
+       break
+
 
 dbconn = sqlite3.connect('/var/www/vhosts/rpi-station/database/rpi-station.sqlite')
 cursor = dbconn.cursor()
@@ -25,7 +51,7 @@ except:
 cursor.execute('DELETE from plugin_wh24p;')
 dbconn.commit()
 
-while True:
+while port_found:
     result = conn.readline().hex()
 
     if len(result) == 42:
