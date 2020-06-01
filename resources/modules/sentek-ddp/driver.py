@@ -30,7 +30,7 @@ for usb in usb_ports:
         port_found = True
         break
 
-if !port_found:
+if port_found == False:
     exit()
 
 ser.write(b':010600000002F7\r\n')
