@@ -1,0 +1,105 @@
+{
+  "module": "sentek-ddp",
+  "title": "Sentek Drill&Drop Probe",
+  "manufacture": "sentek",
+  "min_length": "10",
+  "engine": "python3",
+  "devices":
+  {
+    "soil_temperature": {
+      "title": "Датчик температуры грунта",
+      "sensors": {
+        "soil_temperature_1": {
+          "title":"Температура на глубине 5 см",
+          "short_title":"tп. 5",
+          "unit":"\u00b0C",
+          "mask":"ST\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        },
+        "soil_temperature_2": {
+          "title":"Температура на глубине 15 см",
+          "short_title":"tп. 15",
+          "unit":"\u00b0C",
+          "mask":"ST\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        },
+        "soil_temperature_3": {
+          "title":"Температура на глубине 25 см",
+          "short_title":"tп. 25",
+          "unit":"\u00b0C",
+          "mask":"ST\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        },
+        "soil_temperature_4": {
+          "title":"Температура на глубине 35 см",
+          "short_title":"tп. 35",
+          "unit":"\u00b0C",
+          "mask":"ST\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        },
+        "soil_temperature_5": {
+          "title":"Температура на глубине 45 см",
+          "short_title":"tп. 45",
+          "unit":"\u00b0C",
+          "mask":"ST\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        },
+        "soil_temperature_6": {
+          "title":"Температура на глубине 55 см",
+          "short_title":"tп. 5",
+          "unit":"\u00b0C",
+          "mask":"ST\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        }
+      }
+    },
+
+    "soil_moisture": {
+      "title": "Датчик влажности грунта",
+      "sensors": {
+        "soil_moisture_1": {
+          "title":"Влажность на глубине 5 см",
+          "short_title":"Вл. 5",
+          "unit":"%",
+          "mask":"SM\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        },
+        "soil_moisture_2": {
+          "title":"Влажность на глубине 15 см",
+          "short_title":"Вл. 15",
+          "unit":"%",
+          "mask":"SM\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        },
+        "soil_moisture_3": {
+          "title":"Влажность на глубине 25 см",
+          "short_title":"Вл. 25",
+          "unit":"%",
+          "mask":"SM\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        },
+        "soil_moisture_4": {
+          "title":"Влажность на глубине 35 см",
+          "short_title":"Вл. 35",
+          "unit":"%",
+          "mask":"SM\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        },
+        "soil_moisture_5": {
+          "title":"Влажность на глубине 45 см",
+          "short_title":"Вл. 45",
+          "unit":"\u00b0C",
+          "mask":"SM\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        },
+        "soil_moisture_6": {
+          "title":"Влажность на глубине 55 см",
+          "short_title":"Вл. 5",
+          "unit":"%",
+          "mask":"SM\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = ($s_value == -99)?null:$s_value;"
+        }
+      }
+    }
+  }
+}
