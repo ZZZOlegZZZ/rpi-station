@@ -31,6 +31,8 @@ for usb in usb_ports:
         break
 
 if port_found == False:
+    print ('ST -99 -99 -99 -99 -99 -99')
+    print ('SM -99 -99 -99 -99 -99 -99')
     exit()
 
 ser.write(b':010600000002F7\r\n')
