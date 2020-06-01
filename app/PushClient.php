@@ -19,7 +19,7 @@ class PushClient extends Model
 
         foreach(StationData::unsent($client) as $data) {
           $response = $gzclient->request($client->method,
-            'http://'.
+            'https://'.
             $client->host.":".$client->port."/".
             $client->uri, [
               'form_params' => [
