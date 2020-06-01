@@ -94,7 +94,7 @@
         },
         "soil_moisture_6": {
           "title":"Влажность на глубине 55 см",
-          "short_title":"Вл. 5",
+          "short_title":"Вл. 55",
           "unit":"%",
           "mask":"SM\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = ($s_value == -99)?null:$s_value;"

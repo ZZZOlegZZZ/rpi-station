@@ -15,6 +15,8 @@ for port in ports:
     if 'USB' in port[1]:
         usb_ports.add(port[0])
 
+port_found = False
+
 for usb in usb_ports:
     ser = serial.Serial(usb, 9600, stopbits=serial.STOPBITS_TWO,bytesize=serial.SEVENBITS, parity = serial.PARITY_NONE, timeout=0.8)
     ser.write(b':01080000A5371B\r\n')
@@ -25,8 +27,11 @@ for usb in usb_ports:
     resp = ser.read(100).decode('ascii')
 
     if ':01080000A5371B' in resp:
-        sentek = usb
+        port_found = True
         break
+
+if !port_found:
+    exit()
 
 ser.write(b':010600000002F7\r\n')
 ser.read(100).decode('ascii')
