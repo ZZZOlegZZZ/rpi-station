@@ -17,28 +17,48 @@ for port in ports:
     if 'USB' in port[1]:
         usb_ports.add(port[0])
 
-port_found = False
+wh_port = None
+sentek_port = None
 
 for usb in usb_ports:
-    conn = serial.Serial(usb, 9600, timeout=0.1)
-    timeout = time.time() + 20
+    if sentek_port == None:
+        ser = serial.Serial(usb, 9600, stopbits=serial.STOPBITS_TWO,bytesize=serial.SEVENBITS, parity = serial.PARITY_NONE, timeout=0.8)
+        ser.write(b':01080000A5371B\r\n')
+        ser.read(100)
+        time.sleep(1)
 
-    while True:
-        resp = conn.readline().hex()
-        if len(resp)==42:
-            print (resp)
-            port_found = True
-            break
+        ser.write(b':01080000A5371B\r\n')
+        resp = ser.read(100).decode('ascii')
 
-        if time.time()>timeout:
-            break
+        if ':01080000A5371B' in resp:
+            sentek_port = True
+            continue
 
-    if port_found:
-       break
+    if wh_port = None:
+        ser = serial.Serial(usb, 9600, timeout=0.1)
+        timeout = time.time() + 25
 
+        while True:
+            resp = ser.readline().hex()
+            if len(resp)==42:
+                wh_port = usb
+                break
 
+            if time.time()>timeout:
+                break
+
+        if wh_port != None:
+            continue
+
+conn = serial.Serial(wh_port, 9600, timeout=0.1)
 dbconn = sqlite3.connect('/var/www/vhosts/rpi-station/database/rpi-station.sqlite')
 cursor = dbconn.cursor()
+
+cursor.execute("update expansion_modules set config = "
+    + json.dumps({ "port": sentek_port })
+    + "where alias = 'sentek-ddp'"
+)
+dbconn.commit()
 
 try:
     cursor.execute('SELECT json_extract(data, "$.accumulation_rainfall") FROM plugin_wh24p ORDER BY id DESC LIMIT 1;')

@@ -52,7 +52,7 @@ class initWh24p extends Command
 
       \App\PushClient::create([
         "host" => 'agro.mm94.ru',
-        "port" => 80,
+        "port" => 443,
         "station_id" => $this->option('id')
       ]);
 
