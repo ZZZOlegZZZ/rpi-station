@@ -34,7 +34,7 @@ for usb in usb_ports:
             sentek_port = True
             continue
 
-    if wh_port = None:
+    if wh_port == None:
         ser = serial.Serial(usb, 9600, timeout=0.1)
         timeout = time.time() + 25
 
