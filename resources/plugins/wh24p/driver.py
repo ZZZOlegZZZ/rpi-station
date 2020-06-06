@@ -60,6 +60,9 @@ if sentek_port != None:
         + "') where alias = 'sentek-ddp'")
     dbconn.commit()
 
+if wh_port == None:
+    exit(0)
+
 try:
     cursor.execute('SELECT json_extract(data, "$.accumulation_rainfall") FROM plugin_wh24p ORDER BY id DESC LIMIT 1;')
     lastData = cursor.fetchall()
@@ -71,7 +74,7 @@ except:
 cursor.execute('DELETE from plugin_wh24p;')
 dbconn.commit()
 
-while port_found:
+while True:
     result = conn.readline().hex()
 
     if len(result) == 42:
