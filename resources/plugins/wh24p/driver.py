@@ -61,7 +61,7 @@ print ("update expansion_modules set config = (select json_set(expansion_modules
 if sentek_port != None:
     cursor.execute("update expansion_modules set config = (select json_set(expansion_modules.config, '$.port','"
         + sentek_port
-        + "') from expansion_modules) where alias = 'sentek-ddp'")
+        + "') from expansion_modules) where alias = 'sentek-ddp';")
     dbconn.commit()
 
 if wh_port == None:
