@@ -55,9 +55,9 @@ dbconn = sqlite3.connect('/var/www/vhosts/rpi-station/database/rpi-station.sqlit
 cursor = dbconn.cursor()
 
 if sentek_port != None:
-    cursor.execute("update expansion_modules set config = "
-        + json.dumps({ "port": sentek_port })
-        + " where alias = 'sentek-ddp'")
+    cursor.execute("update expansion_modules json_set (config, '$.port','"
+        + sentek_port
+        + "') where alias = 'sentek-ddp'")
     dbconn.commit()
 
 try:
