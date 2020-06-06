@@ -19,6 +19,7 @@ if not config:
     exit(0)
 
 port = config[0]
+print (port)
 ser = serial.Serial(port, 9600, stopbits=serial.STOPBITS_TWO,bytesize=serial.SEVENBITS, parity = serial.PARITY_NONE, timeout=0.8)
 
 
