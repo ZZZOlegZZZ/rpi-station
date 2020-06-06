@@ -31,7 +31,7 @@ for usb in usb_ports:
         resp = ser.read(100).decode('ascii')
 
         if ':01080000A5371B' in resp:
-            sentek_port = True
+            sentek_port = usb
             continue
 
     if wh_port == None:
