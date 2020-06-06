@@ -54,12 +54,10 @@ conn = serial.Serial(wh_port, 9600, timeout=0.1)
 dbconn = sqlite3.connect('/var/www/vhosts/rpi-station/database/rpi-station.sqlite')
 cursor = dbconn.cursor()
 
-print ("update expansion_modules set config = (select json_set(expansion_modules.config, '$.port','"
-    + sentek_port
-    + "') from expansion_modules) where alias = 'sentek-ddp'")
+print (sentek_port)
 
 if sentek_port != None:
-    cursor.execute("update expansion_modules set config = (select json_set(expansion_modules.config, '$.port','"
+    cursor.execute("update expansion_modules set config = (select json_set('{}', '$.port','"
         + sentek_port
         + "') from expansion_modules) where alias = 'sentek-ddp';")
     dbconn.commit()
