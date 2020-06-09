@@ -36,7 +36,7 @@ for usb in usb_ports:
 
     if wh_port == None:
         ser = serial.Serial(usb, 9600, timeout=0.1)
-        timeout = time.time() + 25
+        timeout = time.time() + 36
 
         while True:
             resp = ser.readline().hex()
