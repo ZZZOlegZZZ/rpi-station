@@ -67,7 +67,7 @@
           "short_title":"Пор. ветра",
           "unit":"м/с",
           "mask":"WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = round(($s_value/10)*3, 1);"
+          "rule":"($s_value == -9999)?$value = null:$value = round(($s_value/10)*1.4, 1);"
         }
       }
     },
