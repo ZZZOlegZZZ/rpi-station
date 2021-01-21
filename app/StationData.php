@@ -73,7 +73,11 @@ class StationData extends Model
     }
 
     public static function unsent($client){
-      return self::orderBy('id', 'desc')->limit(1)->get();
+      return self::orderBy('id', 'desc')->where(
+        'id',
+        '>',
+        $client->last_sent_data_id?$client->last_sent_data_id:0
+      )->limit(1)->get();
       return self::where(
         'id',
         '>',
