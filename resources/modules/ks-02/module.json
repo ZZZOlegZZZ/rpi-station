@@ -181,70 +181,70 @@
           "short_title":"tп. 10",
           "unit":"\u00b0C",
           "mask":"IM_DPG\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:($s_value == -1000)?null:$s_value/10;"
+          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_2": {
           "title":"Температура на глубине 20 см",
           "short_title":"tп. 20",
           "unit":"\u00b0C",
           "mask":"IM_DPG\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:($s_value == -1000)?null:$s_value/10;"
+          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_3": {
           "title":"Температура на глубине 30 см",
           "short_title":"tп. 30",
           "unit":"\u00b0C",
           "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:($s_value == -1000)?null:$s_value/10;"
+          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_4": {
           "title":"Температура на глубине 40 см",
           "short_title":"tп. 40",
           "unit":"\u00b0C",
           "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:($s_value == -1000)?null:$s_value/10;"
+          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_5": {
           "title":"Температура на глубине 50 см",
           "short_title":"tп. 50",
           "unit":"\u00b0C",
           "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:($s_value == -1000)?null:$s_value/10;"
+          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_6": {
           "title":"Температура на глубине 60 см",
           "short_title":"tп. 60",
           "unit":"\u00b0C",
           "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:($s_value == -1000)?null:$s_value/10;"
+          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_7": {
           "title":"Температура на глубине 70 см",
           "short_title":"tп. 70",
           "unit":"\u00b0C",
           "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:($s_value == -1000)?null:$s_value/10;"
+          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_8": {
           "title":"Температура на глубине 80 см",
           "short_title":"tп. 80",
           "unit":"\u00b0C",
           "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:($s_value == -1000)?null:$s_value/10;"
+          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_9": {
           "title":"Температура на глубине 90 см",
           "short_title":"tп. 90",
           "unit":"\u00b0C",
           "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:($s_value == -1000)?null:$s_value/10;"
+          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_10": {
           "title":"Температура на глубине 100 см",
           "short_title":"tп. 100",
           "unit":"\u00b0C",
           "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:($s_value == -1000)?null:$s_value/10;"
+          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         }
       }
     },
