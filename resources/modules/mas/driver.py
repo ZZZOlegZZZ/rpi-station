@@ -17,11 +17,11 @@ try:
     # time.sleep(1)
     tn.write("@2 MES 2\n".encode('ascii'))
     time.sleep(1)
-    data = tn.read_all().decode('ascii')
+    data = tn.read_very_eager().decode('ascii')
     time.sleep(1)
     tn.write("@2 MES 3\n".encode('ascii'))
     time.sleep(1)
-    data = data + tn.read_all().decode('ascii')
+    data = data + tn.read_very_eager().decode('ascii')
 
     print(data)
 
