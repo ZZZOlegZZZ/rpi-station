@@ -60,7 +60,7 @@ class initrzd2021 extends Command
           "alias" => 'rm',
           "is_optional" => 1,
           "config" => (object)[
-            "host"=>"192.168.1.26",
+            "host"=>"192.168.1.1",
             "port"=>4002,
             "option"=>"True"
           ]
@@ -71,7 +71,7 @@ class initrzd2021 extends Command
           "alias" => 'do-02',
           "is_optional" => 1,
           "config" => (object)[
-            "host"=>"192.168.1.26",
+            "host"=>"192.168.1.1",
             "port"=>4002,
             "option"=>41
           ]
