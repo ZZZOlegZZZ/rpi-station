@@ -18,8 +18,9 @@ print (host, port, id)
 try:
     tn = telnetlib.Telnet(host, port)
 
-    if id:
-        tn.write("@" + id + " M0\r\n".encode('ascii'))
+    if id != None:
+        command = "@" + id + " M0\r\n"
+        tn.write(command.encode('ascii'))
     else:
         tn.write("M0\r\n".encode('ascii'))
     time.sleep(3)
