@@ -17,6 +17,7 @@ class Measurement extends Model
     protected $module_config_args = [
       'host',
       'port',
+      'option'
     ];
 
 

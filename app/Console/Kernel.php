@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\initrzd::class,
+        Commands\initrzd2021::class,
         Commands\initRzdVs::class,
         Commands\initrzdtst::class,
         Commands\sendTestData::class,
