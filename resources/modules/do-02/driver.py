@@ -13,8 +13,6 @@ if len(sys.argv)>1:
 if len(sys.argv) > 3:
     id = sys.argv[3]
 
-print (host, port, id)
-
 try:
     tn = telnetlib.Telnet(host, port)
 
@@ -32,5 +30,4 @@ try:
 
 
 except:
-    print ("err")
     exit()

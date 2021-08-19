@@ -21,9 +21,6 @@ try:
     tn.write("@2 MES 2\n".encode('ascii'))
     time.sleep(1)
     data = data + tn.read_very_eager().decode('ascii')
-    tn.write("@2 MES 4\n".encode('ascii'))
-    time.sleep(1)
-    data = data + tn.read_very_eager().decode('ascii')
 
     print(data)
 
