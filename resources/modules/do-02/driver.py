@@ -10,10 +10,10 @@ if len(sys.argv)>1:
     host = sys.argv[1]
     port = sys.argv[2]
 
-# if len(sys.argv) == 3:
-#     id = sys.argv[3]
+if len(sys.argv) > 3:
+    id = sys.argv[3]
 
-print (len(sys.argv))
+print (host, port, id)
 
 try:
     tn = telnetlib.Telnet(host, port)
