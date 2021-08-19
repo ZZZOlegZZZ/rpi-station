@@ -14,9 +14,7 @@ if len(sys.argv)>1:
 try:
     tn = telnetlib.Telnet(host, port)
 
-    print(tn)
-
-    if (id):
+    if id:
         tn.write("@" + id + " M0\r\n".encode('ascii'))
     else:
         tn.write("M0\r\n".encode('ascii'))
