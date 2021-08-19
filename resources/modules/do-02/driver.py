@@ -11,10 +11,10 @@ if len(sys.argv)>1:
     port = sys.argv[2]
     id = sys.argv[3]
 
-print(id)
-
 try:
     tn = telnetlib.Telnet(host, port)
+
+    print(tn)
 
     if (id):
         tn.write("@" + id + " M0\r\n".encode('ascii'))
@@ -29,4 +29,5 @@ try:
 
 
 except:
+    print ("err")
     exit()
