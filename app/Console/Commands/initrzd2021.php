@@ -11,7 +11,7 @@ class initrzd2021 extends Command
      *
      * @var string
      */
-    protected $signature = 'initrzd {--set_id=}';
+    protected $signature = 'initrzd2021 {--set_id=}';
 
     /**
      * The console command description.
