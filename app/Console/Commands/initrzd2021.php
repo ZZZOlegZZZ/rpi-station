@@ -108,10 +108,10 @@ class initrzd2021 extends Command
         ]);
 
         \App\ftpClient::create([
-          "host" => 'pkcup.ru',
+          "host" => '217.175.154.119',
           "port" => 21,
-          "login" => "mm94",
-          "password" => "HNvfXb63",
+          "login" => "userzd",
+          "password" => "userzd",
           "station_id" => $this->option('set_id')
         ]);
     }
