@@ -4,51 +4,49 @@
   "manufacture": "Minimax",
   "min_length": "150",
   "engine": "python3",
-  "devices":
-  {
-    "dtv":
-    {
+  "devices": {
+    "dtv": {
       "title": "Датчик температуры и влажности воздуха",
       "sensors": {
         "t_air": {
-          "title":"Температура воздуха",
-          "short_title":"t возд.",
-          "unit":"\u00b0C",
-          "mask":"AIR\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:$s_value/10;"
+          "title": "Температура воздуха",
+          "short_title": "t возд.",
+          "unit": "\u00b0C",
+          "mask": "AIR\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
         },
         "humidity": {
-          "title":"Влажность воздуха",
-          "short_title":"Влажн.",
-          "unit":"%",
-          "mask":"AIR\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "title": "Влажность воздуха",
+          "short_title": "Влажн.",
+          "unit": "%",
+          "mask": "AIR\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
         },
         "dew_point": {
-          "title":"Температура точки росы",
-          "short_title":"tтр",
-          "unit":"\u00b0C",
-          "mask":"AIR\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "title": "Температура точки росы",
+          "short_title": "tтр",
+          "unit": "\u00b0C",
+          "mask": "AIR\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
         }
       }
     },
     "dtd": {
-      "title":"Датчик температуры поверхности дороги и на глубине",
+      "title": "Датчик температуры поверхности дороги и на глубине",
       "sensors": {
         "t_road": {
-          "title":"Температура поверхности дороги",
-          "short_title":"t дор.",
-          "unit":"\u00b0C",
-          "mask":"SURF1\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "title": "Температура поверхности дороги",
+          "short_title": "t дор.",
+          "unit": "\u00b0C",
+          "mask": "SURF1\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
         },
         "t_underroad": {
-          "title":"Температура под поверхностью дороги",
-          "short_title":"t пд.",
-          "unit":"\u00b0C",
-          "mask":"SURF1\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "title": "Температура под поверхностью дороги",
+          "short_title": "t пд.",
+          "unit": "\u00b0C",
+          "mask": "SURF1\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
         }
       }
     },
@@ -56,18 +54,18 @@
       "title": "Датчик скорости ветра",
       "sensors": {
         "wind_speed": {
-          "title":"Скорость ветра",
-          "short_title":"Ск. ветра",
-          "unit":"м/с",
-          "mask":"WIND\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "title": "Скорость ветра",
+          "short_title": "Ск. ветра",
+          "unit": "м/с",
+          "mask": "WIND\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
         },
         "wind_gusts": {
-          "title":"Порывы ветра",
-          "short_title":"Пор. ветра",
-          "unit":"м/с",
-          "mask":"WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = round(($s_value/10)*1.4, 1);"
+          "title": "Порывы ветра",
+          "short_title": "Пор. ветра",
+          "unit": "м/с",
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = round(($s_value/10)*1.4, 1);"
         }
       }
     },
@@ -75,51 +73,51 @@
       "title": "Датчик направления ветра",
       "sensors": {
         "wind_dir": {
-          "title":"Напралвение ветра",
-          "short_title":"Напр. ветра",
-          "unit":"град.",
-          "mask":"WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value;"
+          "title": "Напралвение ветра",
+          "short_title": "Напр. ветра",
+          "unit": "град.",
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "wind_rhumb": {
-          "title":"Напралвение ветра (румб)",
-          "short_title":"Напр. ветра",
-          "unit":"",
-          "mask":"WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$tmp = null:$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
+          "title": "Напралвение ветра (румб)",
+          "short_title": "Напр. ветра",
+          "unit": "",
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$tmp = null:$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
         }
       }
     },
     "precipitation": {
-      "title":"Датчик осадков",
+      "title": "Датчик осадков",
       "sensors": {
         "precipitation_type": {
-          "title":"Тип осадков",
-          "short_title":"Тип осадков",
-          "unit":"",
-          "mask":"OPTEYEPCP\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value;"
+          "title": "Тип осадков",
+          "short_title": "Тип осадков",
+          "unit": "",
+          "mask": "OPTEYEPCP\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value; $pr_code = $s_value"
         },
         "precipitation_cnt": {
-          "title":"Тип осадков",
-          "short_title":"Тип осадков",
-          "unit":"сек",
-          "mask":"OPTEYECNT\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value; $precip_cnt=$s_value;"
+          "title": "Тип осадков",
+          "short_title": "Тип осадков",
+          "unit": "сек",
+          "mask": "OPTEYECNT\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value; $precip_cnt=$s_value;"
         },
         "precipitation_amount": {
-          "title":"Количествово осадков",
-          "short_title":"Кол-во осадков",
-          "unit":"мм",
-          "mask":"OPTEYEPCP\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value/100;"
+          "title": "Количествово осадков",
+          "short_title": "Кол-во осадков",
+          "unit": "мм",
+          "mask": "OPTEYEPCP\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = ($pr_code == 2) ? $s_value/1000 : $s_value/100;"
         },
         "precipitation_intensity": {
-          "title":"Интенсивность осадков",
-          "short_title":"Инт. осадков",
-          "unit":"мм/ч",
-          "mask":"OPTEYEPCP\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null:$value = $s_value/100;"
+          "title": "Интенсивность осадков",
+          "short_title": "Инт. осадков",
+          "unit": "мм/ч",
+          "mask": "OPTEYEPCP\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = ($pr_code == 2) ? $s_value/1000; : $s_value/100;"
         }
       }
     },
@@ -127,49 +125,49 @@
       "title": "Датчик состояния дорожного покрытия",
       "sensors": {
         "salinity": {
-          "title":"",
-          "short_title":"",
-          "unit":"",
-          "mask":"",
-          "rule":""
+          "title": "",
+          "short_title": "",
+          "unit": "",
+          "mask": "",
+          "rule": ""
         },
         "freezing_point": {
-          "title":"",
-          "short_title":"",
-          "unit":"",
-          "mask":"",
-          "rule":""
+          "title": "",
+          "short_title": "",
+          "unit": "",
+          "mask": "",
+          "rule": ""
         },
         "surface_status": {
-          "title":"",
-          "short_title":"",
-          "unit":"",
-          "mask":"",
-          "rule":""
+          "title": "",
+          "short_title": "",
+          "unit": "",
+          "mask": "",
+          "rule": ""
         }
       }
     },
     "pressure": {
-      "title":"Датчик давления",
+      "title": "Датчик давления",
       "sensors": {
         "pressure": {
-          "title":"Давление",
-          "short_title":"Давление",
-          "unit":"мм рт. ст.",
-          "mask":"AIR\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"($s_value == -9999)?$value = null: $value = $s_value;"
+          "title": "Давление",
+          "short_title": "Давление",
+          "unit": "мм рт. ст.",
+          "mask": "AIR\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null: $value = $s_value;"
         }
       }
     },
     "visibility": {
-      "title":"Датчик видимости",
+      "title": "Датчик видимости",
       "sensors": {
         "visibility": {
-          "title":"",
-          "short_title":"",
-          "unit":"",
-          "mask":"",
-          "rule":""
+          "title": "",
+          "short_title": "",
+          "unit": "",
+          "mask": "",
+          "rule": ""
         }
       }
     },
@@ -177,98 +175,97 @@
       "title": "Датчик температуры грунта",
       "sensors": {
         "soil_temperature_1": {
-          "title":"Температура на глубине 10 см",
-          "short_title":"tп. 10",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
+          "title": "Температура на глубине 10 см",
+          "short_title": "tп. 10",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_2": {
-          "title":"Температура на глубине 20 см",
-          "short_title":"tп. 20",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
+          "title": "Температура на глубине 20 см",
+          "short_title": "tп. 20",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_3": {
-          "title":"Температура на глубине 30 см",
-          "short_title":"tп. 30",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
+          "title": "Температура на глубине 30 см",
+          "short_title": "tп. 30",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_4": {
-          "title":"Температура на глубине 40 см",
-          "short_title":"tп. 40",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
+          "title": "Температура на глубине 40 см",
+          "short_title": "tп. 40",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_5": {
-          "title":"Температура на глубине 50 см",
-          "short_title":"tп. 50",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
+          "title": "Температура на глубине 50 см",
+          "short_title": "tп. 50",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_6": {
-          "title":"Температура на глубине 60 см",
-          "short_title":"tп. 60",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
+          "title": "Температура на глубине 60 см",
+          "short_title": "tп. 60",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_7": {
-          "title":"Температура на глубине 70 см",
-          "short_title":"tп. 70",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
+          "title": "Температура на глубине 70 см",
+          "short_title": "tп. 70",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_8": {
-          "title":"Температура на глубине 80 см",
-          "short_title":"tп. 80",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
+          "title": "Температура на глубине 80 см",
+          "short_title": "tп. 80",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_9": {
-          "title":"Температура на глубине 90 см",
-          "short_title":"tп. 90",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
+          "title": "Температура на глубине 90 см",
+          "short_title": "tп. 90",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         },
         "soil_temperature_10": {
-          "title":"Температура на глубине 100 см",
-          "short_title":"tп. 100",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
+          "title": "Температура на глубине 100 см",
+          "short_title": "tп. 100",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999 || $s_value == -1000) ? null : $s_value/10;"
         }
       }
     },
     "dspd": {
       "title": "Бесконтактный датчик состояния дороги (БСП)",
-      "sensors":{
-      }
+      "sensors": {}
     },
-    "power_monitor":{
+    "power_monitor": {
       "title": "Монитор питания",
-      "sensors":{
+      "sensors": {
         "power_source": {
-          "title":"Источник питания",
-          "short_title":"Ист.пит.",
-          "unit":"",
-          "mask":"PSMON\\s+(-*\\d+)",
-          "rule":"$value = $s_value;"
+          "title": "Источник питания",
+          "short_title": "Ист.пит.",
+          "unit": "",
+          "mask": "PSMON\\s+(-*\\d+)",
+          "rule": "$value = $s_value;"
         },
         "battery_voltage": {
-          "title":"Напряжение на аккумуляторе",
-          "short_title":"Напр. акк.",
-          "unit":"В",
-          "mask":"PSMON\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = $s_value/10; $battery_tmp=$s_value/10;"
+          "title": "Напряжение на аккумуляторе",
+          "short_title": "Напр. акк.",
+          "unit": "В",
+          "mask": "PSMON\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = $s_value/10; $battery_tmp=$s_value/10;"
         }
       }
     },
@@ -276,46 +273,46 @@
       "title": "Датчик температуры рельса и балластной призмы",
       "sensors": {
         "t_rail": {
-          "title":"Температура рельса",
-          "short_title":"Tр",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:$s_value/10;"
+          "title": "Температура рельса",
+          "short_title": "Tр",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
         },
         "t_prism_1": {
-          "title":"Температура балластной призмы на глубине 5 см",
-          "short_title":"Tпр5",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:$s_value/10;"
+          "title": "Температура балластной призмы на глубине 5 см",
+          "short_title": "Tпр5",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
         },
         "t_prism_2": {
-          "title":"Температура балластной призмы на глубине 10 см",
-          "short_title":"Tпр10",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:$s_value/10;"
+          "title": "Температура балластной призмы на глубине 10 см",
+          "short_title": "Tпр10",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
         },
         "t_prism_3": {
-          "title":"Температура балластной призмы на глубине 15 см",
-          "short_title":"Tпр15",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:$s_value/10;"
+          "title": "Температура балластной призмы на глубине 15 см",
+          "short_title": "Tпр15",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
         },
         "t_prism_4": {
-          "title":"Температура балластной призмы на глубине 30 см",
-          "short_title":"Tпр30",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:$s_value/10;"
+          "title": "Температура балластной призмы на глубине 30 см",
+          "short_title": "Tпр30",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
         },
         "t_prism_5": {
-          "title":"Температура балластной призмы на глубине 40 см",
-          "short_title":"Tпр40",
-          "unit":"\u00b0C",
-          "mask":"IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule":"$value = ($s_value == -9999)?null:$s_value/10;"
+          "title": "Температура балластной призмы на глубине 40 см",
+          "short_title": "Tпр40",
+          "unit": "\u00b0C",
+          "mask": "IM_DPG\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
         }
       }
     }
