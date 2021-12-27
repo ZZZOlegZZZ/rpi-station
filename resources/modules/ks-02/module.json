@@ -96,7 +96,7 @@
           "short_title": "Тип осадков",
           "unit": "",
           "mask": "OPTEYEPCP\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = $s_value; $pr_code = $s_value"
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value; $pr_code = $s_value;"
         },
         "precipitation_cnt": {
           "title": "Тип осадков",
