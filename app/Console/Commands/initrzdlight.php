@@ -11,7 +11,7 @@ class initrzdlight extends Command
      *
      * @var string
      */
-    protected $signature = 'initrzdlight {--set_id=} {--power=1} {--poll_intv=15}';
+    protected $signature = 'initrzdlight {--set_id=} {--power=0} {--poll_intv=15}';
 
     /**
      * The console command description.
@@ -46,12 +46,9 @@ class initrzdlight extends Command
         \App\Configuration::setId($this->option('set_id'));
 
         \App\Configuration::setSettings([
+          'ui'=>'rzd',
           'power'=>$this->option('power'),
           'poll_intv'=>$this->option('poll_intv'),
-        ]);
-
-        \App\Configuration::setSettings([
-          'ui'=>'rzd',
         ]);
 
          \App\ExpansionModule::create([
