@@ -78,12 +78,12 @@ class initrzdlight extends Command
           "alias" => "rail_prism_temperature",
         ]);
 
-        // \App\ftpClient::create([
-        //   "host" => '217.175.154.119',
-        //   "port" => 21,
-        //   "login" => "userzd",
-        //   "password" => "userzd",
-        //   "station_id" => $this->option('set_id')
-        // ]);
+        \App\ftpClient::create([
+          "host" => '217.175.154.119',
+          "port" => 21,
+          "login" => "userzd",
+          "password" => "userzd",
+          "station_id" => $this->option('set_id')
+        ]);
     }
 }
