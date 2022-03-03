@@ -93,6 +93,20 @@
           "unit":"мм/ч",
           "mask":"precipitation_intensity\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = $s_value;"
+        },
+        "uv_index": {
+          "title":"UV Индекс",
+          "short_title":"UV",
+          "unit":"",
+          "mask":"uv\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
+        },
+        "lightness": {
+          "title":"Освещенность",
+          "short_title":"Освещенность",
+          "unit":"люкс",
+          "mask":"light\\s+(-*\\d+\\.*\\d*)",
+          "rule":"$value = $s_value;"
         }
       }
     }
