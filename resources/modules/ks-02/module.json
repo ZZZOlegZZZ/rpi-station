@@ -110,7 +110,7 @@
           "short_title": "Кол-во осадков",
           "unit": "мм",
           "mask": "OPTEYEPCP\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = (($pr_code == 2) ? $s_value/1000 : $s_value/100);"
+          "rule": "($s_value == -9999)?$value = null:$value = (($pr_code == 2 || $pr_code == 3) ? $s_value/1000 : $s_value/100);"
         },
         "precipitation_intensity": {
           "title": "Интенсивность осадков",
