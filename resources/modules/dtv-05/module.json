@@ -1,0 +1,28 @@
+{
+    "module": "dtv-05",
+    "title": "Minimax DTV-05",
+    "manufacture": "Minimax",
+    "min_length": "5",
+    "engine": "python3",
+    "devices": {
+        "dtv": {
+            "title": "Датчик температуры и влажности воздуха",
+            "sensors": {
+                "t_air": {
+                    "title": "Температура воздуха",
+                    "short_title": "t возд.",
+                    "unit": "\u00b0C",
+                    "mask": "@5:0\\s+(-*\\d+\\.*\\d*)",
+                    "rule": "$value = ($s_value == -99.99)?null:$s_value;"
+                },
+                "humidity": {
+                    "title": "Влажность воздуха",
+                    "short_title": "Влажн.",
+                    "unit": "%",
+                    "mask": "@5:0\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+                    "rule": "$value = ($s_value == -99.99)?null:$s_value;"
+                }
+            }
+        }
+    }
+}
