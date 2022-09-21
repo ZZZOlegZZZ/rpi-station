@@ -16,14 +16,14 @@
           "mask":"@\\d+:0\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = ($s_value == -99.99)?null:$s_value;"
         },
-        "t_prism_1": {
+        "t_prism_5": {
           "title":"Температура балластной призмы на глубине 5 см",
           "short_title":"Tпр5",
           "unit":"\u00b0C",
           "mask":"@\\d+:0\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = ($s_value == -99.99)?null:$s_value;"
         },
-        "t_prism_2": {
+        "t_prism_4": {
           "title":"Температура балластной призмы на глубине 10 см",
           "short_title":"Tпр10",
           "unit":"\u00b0C",
@@ -37,14 +37,14 @@
           "mask":"@\\d+:0\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = ($s_value == -99.99)?null:$s_value;"
         },
-        "t_prism_4": {
+        "t_prism_2": {
           "title":"Температура балластной призмы на глубине 30 см",
           "short_title":"Tпр30",
           "unit":"\u00b0C",
           "mask":"@\\d+:0\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule":"$value = ($s_value == -99.99)?null:$s_value;"
         },
-        "t_prism_5": {
+        "t_prism_1": {
           "title":"Температура балластной призмы на глубине 40 см",
           "short_title":"Tпр40",
           "unit":"\u00b0C",
