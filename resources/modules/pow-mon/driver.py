@@ -22,7 +22,7 @@ try:
 
     tn232.write("link 1\n".encode('ascii'))
     # time.sleep(1)
-    data = tn232.read_until(b"LINK OPENED").decode('ascii')
+    data = tn232.read_until(b"LINK OPENED", timeout=10).decode('ascii')
     # print("LINK OPENED")
 
 
@@ -33,17 +33,17 @@ try:
 
     tn232.write("open\n".encode('ascii'))
     # time.sleep(1)
-    tn232.read_until(b"PM>").decode('ascii')
+    tn232.read_until(b"PM>", timeout=10).decode('ascii')
     # print("PM")
 
     tn232.write("ALL\n".encode('ascii'))
     # time.sleep(1)
-    data = tn232.read_until(b"PM>").decode('ascii')
+    data = tn232.read_until(b"PM>", timeout=10).decode('ascii')
     # print("ALL")
 
     tn232.write(3*chr(27).encode('ascii'))
     # time.sleep(1)
-    tn232.read_until(b"LINK CLOSED").decode('ascii')
+    tn232.read_until(b"LINK CLOSED", timeout=10).decode('ascii')
     # print("closed")
 
 
