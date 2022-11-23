@@ -12,7 +12,7 @@
           "title": "Тип осадков",
           "short_title": "Тип осадков",
           "unit": "",
-          "mask": "@41:0\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "mask": "@41:0\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
           "rule": "($s_value == -9999)?$value = null:$value = $s_value; $pr_code = $s_value;"
         },
         "precipitation_amount": {
