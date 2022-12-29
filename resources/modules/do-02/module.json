@@ -20,14 +20,14 @@
           "short_title": "Кол-во осадков",
           "unit": "мм",
           "mask": "@41:0\\s+(-*[\\.\\d]+)",
-          "rule": "($s_value == -9999)?$value = null:$value = ($pr_code == 2)? $s_value / 10 : $s_value;"
+          "rule": "($s_value == -9999)?$value = null:$value = ($pr_code == 2)? $s_value : $s_value;"
         },
         "precipitation_intensity": {
           "title": "Интенсивность осадков",
           "short_title": "Инт. осадков",
           "unit": "мм/ч",
           "mask": "@41:0\\s+\\S+\\s+(-*[\\.\\d]+)",
-          "rule": "($s_value == -9999)?$value = null:$value = ($pr_code == 2)? $s_value / 10 : $s_value;"
+          "rule": "($s_value == -9999)?$value = null:$value = ($pr_code == 2)? $s_value : $s_value;"
         }
       }
     }
