@@ -15,9 +15,10 @@ try:
 
     tn.write(chr(27).encode('ascii'))
     time.sleep(1)
-    tn.write("hist\n".encode('ascii'))
-
-    data = tn.read_until(b"[/HIST]").decode('ascii')
+    tn.write("poll\n".encode('ascii'))
+    time.sleep(10)
+    tn.write("close\n".encode('ascii'))
+    data = tn.read_until(b"SESSION CLOSED").decode('ascii')
 
     #tn.write("hist del\n".encode('ascii'))
 
