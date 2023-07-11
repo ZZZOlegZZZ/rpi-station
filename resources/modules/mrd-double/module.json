@@ -12,22 +12,22 @@
           "title": "Температура воздуха (верхн.)",
           "short_title": "t возд. (в)",
           "unit": "\u00b0C",
-          "mask": "AIR\\s+(-*\\d+)",
-          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
+          "mask": "AIR_RAW\\s+(-*\\d+\\.*\\d*)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value;"
         },
         "humidity_l": {
           "title": "Влажность воздуха (верхн.)",
           "short_title": "Влажн. (в)",
           "unit": "%",
-          "mask": "AIR\\s+\\S+\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "mask": "AIR\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "dew_point_l": {
           "title": "Температура точки росы (верхн.)",
           "short_title": "tтр (в)",
           "unit": "\u00b0C",
-          "mask": "AIR\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "mask": "AIR\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         }
       }
     },
@@ -38,22 +38,22 @@
           "title": "Температура воздуха (нижн.)",
           "short_title": "t возд. (н)",
           "unit": "\u00b0C",
-          "mask": "AIR2\\s+(-*\\d+)",
-          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
+          "mask": "AIR_RAW2\\s+(-*\\d+\\.*\\d*)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value;"
         },
         "humidity_h": {
           "title": "Влажность воздуха (нижн.)",
           "short_title": "Влажн. (н)",
           "unit": "%",
-          "mask": "AIR2\\s+\\S+\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "mask": "AIR2\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "dew_point_h": {
           "title": "Температура точки росы (нижн.)",
           "short_title": "tтр (н)",
           "unit": "\u00b0C",
-          "mask": "AIR2\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "mask": "AIR2\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         }
       }
     },
@@ -64,15 +64,15 @@
           "title": "Скорость ветра (верхн.)",
           "short_title": "Ск. ветра (в)",
           "unit": "м/с",
-          "mask": "WIND\\s+\\S+\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "mask": "WIND\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "wind_gusts_h": {
           "title": "Порывы ветра (верхн.)",
           "short_title": "Пор. ветра (в)",
           "unit": "м/с",
-          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = round(($s_value/10)*1.4, 1);"
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         }
       }
     },
@@ -83,15 +83,15 @@
           "title": "Скорость ветра (нижн.)",
           "short_title": "Ск. ветра (н)",
           "unit": "м/с",
-          "mask": "WIND2\\s+\\S+\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+          "mask": "WIND2\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "wind_gusts_l": {
           "title": "Порывы ветра (нижн.)",
           "short_title": "Пор. ветра (н)",
           "unit": "м/с",
-          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = round(($s_value/10)*1.4, 1);"
+          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         }
       }
     },
@@ -102,14 +102,14 @@
           "title": "Напралвение ветра (верхн.)",
           "short_title": "Напр. ветра (в)",
           "unit": "град.",
-          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "wind_rhumb_h": {
           "title": "Напралвение ветра (румб) (верхн.)",
           "short_title": "Напр. ветра (в)",
           "unit": "",
-          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$tmp = null:$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
         }
       }
@@ -121,14 +121,14 @@
           "title": "Напралвение ветра (нижн.)",
           "short_title": "Напр. ветра (н)",
           "unit": "град.",
-          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "wind_rhumb_l": {
           "title": "Напралвение ветра (румб) (нижн.)",
           "short_title": "Напр. ветра (н)",
           "unit": "",
-          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$tmp = null:$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
         }
       }
@@ -140,7 +140,7 @@
           "title": "Тип осадков",
           "short_title": "Тип осадков",
           "unit": "",
-          "mask": "OPTEYEPCP\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "mask": "OPTEYEPCP\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$value = null:$value = $s_value; $pr_code = $s_value;"
         },
         "precipitation_cnt": {
@@ -154,15 +154,15 @@
           "title": "Количествово осадков",
           "short_title": "Кол-во осадков",
           "unit": "мм",
-          "mask": "OPTEYEPCP\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = (($pr_code == 2 || $pr_code == 3) ? $s_value/1000 : $s_value/100);"
+          "mask": "OPTEYEPCP\\s+(-*\\d+\\.*\\d*)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "precipitation_intensity": {
           "title": "Интенсивность осадков",
           "short_title": "Инт. осадков",
           "unit": "мм/ч",
-          "mask": "OPTEYEPCP\\s+\\S+\\s+(-*\\d+)",
-          "rule": "($s_value == -9999)?$value = null:$value = (($pr_code == 2) ? $s_value/1000 : $s_value/100);"
+          "mask": "OPTEYEPCP\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         }
       }
     },
@@ -173,7 +173,7 @@
           "title": "Давление",
           "short_title": "Давление",
           "unit": "мм рт. ст.",
-          "mask": "AIR\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "mask": "AIR\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$value = null: $value = $s_value;"
         }
       }
