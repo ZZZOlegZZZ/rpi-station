@@ -26,8 +26,12 @@ try:
     data = tn.read_very_eager().decode('ascii')
 
     print(data)
-    tn.write("r\r\n".encode('ascii'))
-
-
+    
+    if id != None:
+        command = "@" + id + " R\r\n"
+        tn.write(command.encode('ascii'))
+    else:
+        tn.write("R\r\n".encode('ascii'))    
+    
 except:
     exit()
