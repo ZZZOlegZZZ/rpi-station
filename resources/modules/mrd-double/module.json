@@ -1,0 +1,182 @@
+{
+  "module": "ks-02",
+  "title": "Minimax KS-02",
+  "manufacture": "Minimax",
+  "min_length": "150",
+  "engine": "python3",
+  "devices": {
+    "dtv_l": {
+      "title": "Датчик температуры и влажности воздуха",
+      "sensors": {
+        "t_air_l": {
+          "title": "Температура воздуха (верхн.)",
+          "short_title": "t возд. (в)",
+          "unit": "\u00b0C",
+          "mask": "AIR\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
+        },
+        "humidity_l": {
+          "title": "Влажность воздуха (верхн.)",
+          "short_title": "Влажн. (в)",
+          "unit": "%",
+          "mask": "AIR\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+        },
+        "dew_point_l": {
+          "title": "Температура точки росы (верхн.)",
+          "short_title": "tтр (в)",
+          "unit": "\u00b0C",
+          "mask": "AIR\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+        }
+      }
+    },
+    "dtv_h": {
+      "title": "Датчик температуры и влажности воздуха",
+      "sensors": {
+        "t_air_h": {
+          "title": "Температура воздуха (нижн.)",
+          "short_title": "t возд. (н)",
+          "unit": "\u00b0C",
+          "mask": "AIR2\\s+(-*\\d+)",
+          "rule": "$value = ($s_value == -9999)?null:$s_value/10;"
+        },
+        "humidity_h": {
+          "title": "Влажность воздуха (нижн.)",
+          "short_title": "Влажн. (н)",
+          "unit": "%",
+          "mask": "AIR2\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+        },
+        "dew_point_h": {
+          "title": "Температура точки росы (нижн.)",
+          "short_title": "tтр (н)",
+          "unit": "\u00b0C",
+          "mask": "AIR2\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+        }
+      }
+    },
+    "wind_speed_h": {
+      "title": "Датчик скорости ветра",
+      "sensors": {
+        "wind_speed_h": {
+          "title": "Скорость ветра (верхн.)",
+          "short_title": "Ск. ветра (в)",
+          "unit": "м/с",
+          "mask": "WIND\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+        },
+        "wind_gusts_h": {
+          "title": "Порывы ветра (верхн.)",
+          "short_title": "Пор. ветра (в)",
+          "unit": "м/с",
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = round(($s_value/10)*1.4, 1);"
+        }
+      }
+    },
+    "wind_speed_l": {
+      "title": "Датчик скорости ветра",
+      "sensors": {
+        "wind_speed_l": {
+          "title": "Скорость ветра (нижн.)",
+          "short_title": "Ск. ветра (н)",
+          "unit": "м/с",
+          "mask": "WIND2\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value/10;"
+        },
+        "wind_gusts_l": {
+          "title": "Порывы ветра (нижн.)",
+          "short_title": "Пор. ветра (н)",
+          "unit": "м/с",
+          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = round(($s_value/10)*1.4, 1);"
+        }
+      }
+    },
+    "wind_dir_h": {
+      "title": "Датчик направления ветра",
+      "sensors": {
+        "wind_dir_h": {
+          "title": "Напралвение ветра (верхн.)",
+          "short_title": "Напр. ветра (в)",
+          "unit": "град.",
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
+        },
+        "wind_rhumb_h": {
+          "title": "Напралвение ветра (румб) (верхн.)",
+          "short_title": "Напр. ветра (в)",
+          "unit": "",
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$tmp = null:$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
+        }
+      }
+    },
+    "wind_dir_l": {
+      "title": "Датчик направления ветра",
+      "sensors": {
+        "wind_dir_l": {
+          "title": "Напралвение ветра (нижн.)",
+          "short_title": "Напр. ветра (н)",
+          "unit": "град.",
+          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
+        },
+        "wind_rhumb_l": {
+          "title": "Напралвение ветра (румб) (нижн.)",
+          "short_title": "Напр. ветра (н)",
+          "unit": "",
+          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$tmp = null:$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
+        }
+      }
+    },
+    "precipitation": {
+      "title": "Датчик осадков",
+      "sensors": {
+        "precipitation_type": {
+          "title": "Тип осадков",
+          "short_title": "Тип осадков",
+          "unit": "",
+          "mask": "OPTEYEPCP\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value; $pr_code = $s_value;"
+        },
+        "precipitation_cnt": {
+          "title": "Тип осадков",
+          "short_title": "Тип осадков",
+          "unit": "сек",
+          "mask": "OPTEYECNT\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = $s_value; $precip_cnt=$s_value;"
+        },
+        "precipitation_amount": {
+          "title": "Количествово осадков",
+          "short_title": "Кол-во осадков",
+          "unit": "мм",
+          "mask": "OPTEYEPCP\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = (($pr_code == 2 || $pr_code == 3) ? $s_value/1000 : $s_value/100);"
+        },
+        "precipitation_intensity": {
+          "title": "Интенсивность осадков",
+          "short_title": "Инт. осадков",
+          "unit": "мм/ч",
+          "mask": "OPTEYEPCP\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null:$value = (($pr_code == 2) ? $s_value/1000 : $s_value/100);"
+        }
+      }
+    },
+    "pressure": {
+      "title": "Датчик давления",
+      "sensors": {
+        "pressure": {
+          "title": "Давление",
+          "short_title": "Давление",
+          "unit": "мм рт. ст.",
+          "mask": "AIR\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+)",
+          "rule": "($s_value == -9999)?$value = null: $value = $s_value;"
+        }
+      }
+    }
+  }
+}

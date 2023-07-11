@@ -40,50 +40,37 @@
             <hero-body>
                 <container>
                     <div class="tile is-ancestor">
-                        <div class="tile is-vertical is-8">
+                        <div class="tile is-vertical is-12">
                             <div class="tile">
                                 <div class="tile is-parent">
-                                    <air-hum-pres
+                                    <air-hum-dewp-h
                                         :data="data"
                                         :lastData="lastData"
                                     />
                                 </div>
                                 <div class="tile is-parent">
-                                    <precip :data="data" :lastData="lastData">
-                                    </precip>
+                                    <air-hum-dewp-l
+                                        :data="data"
+                                        :lastData="lastData"
+                                    />
                                 </div>
                             </div>
                             <div class="tile">
-                                <div class="tile is-vertical is-6">
-                                    <div class="tile is-parent">
-                                        <wind :data="data" :lastData="lastData">
-                                        </wind>
-                                    </div>
-                                    <div class="tile is-parent">
-                                        <telemetry
-                                            :data="data"
-                                            :lastData="lastData"
-                                        >
-                                        </telemetry>
-                                    </div>
-                                </div>
-
                                 <div class="tile is-parent">
-                                    <rail-prism
-                                        :data="data"
-                                        :lastData="lastData"
-                                    >
-                                    </rail-prism>
+                                    <wind-h :data="data" :lastData="lastData" />
+                                </div>
+                                <div class="tile is-parent">
+                                    <wind-l :data="data" :lastData="lastData" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="tile is-parent">
-                            <alert
-                                :alerts="alerts"
-                                :doorStatus="doorStatus"
-                                :powerStatus="powerStatus"
-                            >
-                            </alert>
+                            <div class="tile">
+                                <div class="tile is-parent">
+                                    <precip-press
+                                        :data="data"
+                                        :lastData="lastData"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </container>
@@ -93,22 +80,26 @@
 </template>
 
 <script>
-import AirHumPres from "../DashBlocks/AirHumPres.vue";
-import Precip from "../DashBlocks/Precip.vue";
-import Wind from "../DashBlocks/Wind.vue";
+import AirHumDewpH from "../DashBlocks/AirHumDewpH.vue";
+import AirHumDewpL from "../DashBlocks/AirHumDewpL.vue";
+import PrecipPress from "../DashBlocks/PrecipPress.vue";
+import WindH from "../DashBlocks/WindH.vue";
+import WindL from "../DashBlocks/WindL.vue";
 import Alert from "../DashBlocks/Alert.vue";
 import RailPrism from "../DashBlocks/RailPrism.vue";
 import Telemetry from "../DashBlocks/Telemetry.vue";
 
-import History from "../RzdComponents/History.vue";
+import History from "../MrdDblComponents/History.vue";
 
 export default {
-    name: "rzd-template",
+    name: "mrd-dbl-template",
 
     components: {
-        AirHumPres,
-        Precip,
-        Wind,
+        AirHumDewpH,
+        AirHumDewpL,
+        PrecipPress,
+        WindH,
+        WindL,
         Alert,
         History,
         RailPrism,
