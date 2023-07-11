@@ -31,25 +31,25 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->call(function(){
-          \App\Measurement::pollModules();
-          \App\Measurement::processRaw();
-        })->everyFiveMinutes();
-
-        $schedule->call(function(){
-          if (isset(\App\Configuration::find(1)->settings->power) && intval(\App\Configuration::find(1)->settings->power) > 0){
+        $schedule->call(function () {
             \App\Measurement::pollModules();
             \App\Measurement::processRaw();
-          }
         })->everyMinute();
 
-        $schedule->call(function(){
-          \App\ftpClient::upload();
-          \App\PushClient::pushData();
+        $schedule->call(function () {
+            if (isset(\App\Configuration::find(1)->settings->power) && intval(\App\Configuration::find(1)->settings->power) > 0) {
+                \App\Measurement::pollModules();
+                \App\Measurement::processRaw();
+            }
         })->everyMinute();
 
-        $schedule->call(function(){
-          \App\Power::getStatus();
+        $schedule->call(function () {
+            \App\ftpClient::upload();
+            \App\PushClient::pushData();
+        })->everyMinute();
+
+        $schedule->call(function () {
+            \App\Power::getStatus();
         })->everyMinute();
     }
 
@@ -60,7 +60,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
