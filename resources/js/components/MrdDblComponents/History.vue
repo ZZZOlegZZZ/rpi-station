@@ -111,7 +111,7 @@ export default {
 
     methods: {
         formatDate(date) {
-            return moment(date).format("DD MMMM hh:mm");
+            return moment.utc(date).local().format("DD MMMM hh:mm");
         },
         getHistory() {
             let props = {

@@ -12,7 +12,7 @@
           "title": "Температура воздуха (верхн.)",
           "short_title": "t возд. (в)",
           "unit": "\u00b0C",
-          "mask": "AIR_RAW\\s+(-*\\d+\\.*\\d*)",
+          "mask": "AIR\\s+(-*\\d+\\.*\\d*)",
           "rule": "$value = ($s_value == -9999)?null:$s_value;"
         },
         "humidity_l": {
@@ -38,7 +38,7 @@
           "title": "Температура воздуха (нижн.)",
           "short_title": "t возд. (н)",
           "unit": "\u00b0C",
-          "mask": "AIR_RAW2\\s+(-*\\d+\\.*\\d*)",
+          "mask": "AIR2\\s+(-*\\d+\\.*\\d*)",
           "rule": "$value = ($s_value == -9999)?null:$s_value;"
         },
         "humidity_h": {
