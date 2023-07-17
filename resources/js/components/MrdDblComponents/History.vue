@@ -68,7 +68,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="data_chunk in history">
-                            <td>{{ data_chunk.measured_at }}</td>
+                            <td>{{ formatDate(data_chunk.measured_at) }}</td>
                             <td>{{ data_chunk.data.t_air_h }}</td>
                             <td>{{ data_chunk.data.humidity_h }}</td>
                             <td>{{ data_chunk.data.dew_point_h }}</td>
