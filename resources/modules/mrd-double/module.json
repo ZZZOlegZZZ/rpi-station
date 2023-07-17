@@ -64,7 +64,7 @@
           "title": "Скорость ветра (верхн.)",
           "short_title": "Ск. ветра (в)",
           "unit": "м/с",
-          "mask": "WIND\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "mask": "WIND\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "wind_gusts_h": {
@@ -83,7 +83,7 @@
           "title": "Скорость ветра (нижн.)",
           "short_title": "Ск. ветра (н)",
           "unit": "м/с",
-          "mask": "WIND2\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "mask": "WIND2\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "wind_gusts_l": {
@@ -102,14 +102,14 @@
           "title": "Напралвение ветра (верхн.)",
           "short_title": "Напр. ветра (в)",
           "unit": "град.",
-          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "wind_rhumb_h": {
           "title": "Напралвение ветра (румб) (верхн.)",
           "short_title": "Напр. ветра (в)",
           "unit": "",
-          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "mask": "WIND\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$tmp = null:$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
         }
       }
@@ -121,14 +121,14 @@
           "title": "Напралвение ветра (нижн.)",
           "short_title": "Напр. ветра (н)",
           "unit": "град.",
-          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$value = null:$value = $s_value;"
         },
         "wind_rhumb_l": {
           "title": "Напралвение ветра (румб) (нижн.)",
           "short_title": "Напр. ветра (н)",
           "unit": "",
-          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
+          "mask": "WIND2\\s+\\S+\\s+\\S+\\s+\\S+\\s+\\S+\\s+(-*\\d+\\.*\\d*)",
           "rule": "($s_value == -9999)?$tmp = null:$tmp = round($s_value/45)+1;($tmp>8)?$value=1:$value=$tmp;"
         }
       }
