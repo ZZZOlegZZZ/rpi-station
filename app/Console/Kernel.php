@@ -34,14 +34,14 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             \App\Measurement::pollModules();
             \App\Measurement::processRaw();
-        })->everyMinute();
+        })->everyFiveMinutes();
 
         $schedule->call(function () {
             if (isset(\App\Configuration::find(1)->settings->power) && intval(\App\Configuration::find(1)->settings->power) > 0) {
                 \App\Measurement::pollModules();
                 \App\Measurement::processRaw();
             }
-        })->everyFiveMinutes();
+        })->everyMinute();
 
         $schedule->call(function () {
             \App\ftpClient::upload();
