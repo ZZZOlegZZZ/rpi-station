@@ -41,7 +41,7 @@ class Kernel extends ConsoleKernel
                 \App\Measurement::pollModules();
                 \App\Measurement::processRaw();
             }
-        })->everyMinute();
+        })->everyFiveMinutes();
 
         $schedule->call(function () {
             \App\ftpClient::upload();
