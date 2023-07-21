@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class initrzdSortRail extends Command
+class initrzdSortRailNoPowMon extends Command
 {
     /**
      * The name and signature of the console command.
